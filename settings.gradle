@@ -1,0 +1,3 @@
+include ':libreriapictos'
+include ':app'
+rootProject.name = "pictogramas"
