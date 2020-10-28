@@ -3,6 +3,12 @@ package com.stonefacesoft.pictogramas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+
+import com.stonefacesoft.pictogramslibrary.PictogramsLibraryGroup;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Skeleton of an Android Things activity.
@@ -26,7 +32,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new Grupo(this));
+        JSONObject object=new JSONObject();
+        JSONObject language=new JSONObject();
+        try {
+            language.put("en","hello");
+            language.put("es","hola");
+            object.put("text",language);
+            Log.e("Object", "onCreate: "+object.toString() );
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        PictogramsLibraryGroup grupo=new PictogramsLibraryGroup(this,object,"es");
+        grupo.ProcessData();
+        setContentView(grupo.getGrupo());
 
     }
 
