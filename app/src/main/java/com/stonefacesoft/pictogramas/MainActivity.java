@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.stonefacesoft.pictogramslibrary.PictogramsLibraryGroup;
+import com.stonefacesoft.pictogramslibrary.Grupo;
+import com.stonefacesoft.pictogramslibrary.LibreriaPictos;
+import com.stonefacesoft.pictogramslibrary.view.PictogramsLibraryGroupView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,22 +31,16 @@ import org.json.JSONObject;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private PictogramsLibraryGroupView groupView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        JSONObject object=new JSONObject();
-        JSONObject language=new JSONObject();
-        try {
-            language.put("en","hello");
-            language.put("es","hola");
-            object.put("text",language);
-            Log.e("Object", "onCreate: "+object.toString() );
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        PictogramsLibraryGroup grupo=new PictogramsLibraryGroup(this,object,"es");
-        grupo.ProcessData();
-        setContentView(grupo.getGrupo());
+        setContentView(R.layout.main);
+        Grupo grupo=new Grupo("hola","hello",getResources().getDrawable(R.drawable.ic_lock_outline_black_24dp),0);
+        groupView=findViewById(R.id.pictogram0);
+        groupView.setGrupo(grupo);
+
 
     }
 
