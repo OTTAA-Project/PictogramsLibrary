@@ -6,28 +6,29 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.stonefacesoft.pictogramslibrary.Grupo;
+import com.stonefacesoft.pictogramslibrary.Interfaces.ModelTypes;
 import com.stonefacesoft.pictogramslibrary.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 
-public class PictogramsLibraryGroupView extends TarjetView{
+public class GroupView extends TarjetView{
     private ImageView tagHora,tagUbicacion,tagSexo,tagEdad;
     private ImageView Color;
     private int Custom_Color;
     private Grupo grupo;
 
 
-    public PictogramsLibraryGroupView(@NonNull Context context) {
+    public GroupView(@NonNull Context context) {
         super(context);
         init();
     }
 
-    public PictogramsLibraryGroupView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public GroupView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init();
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
                 R.styleable.Custom_Picto,
@@ -42,9 +43,8 @@ public class PictogramsLibraryGroupView extends TarjetView{
         init();
     }
 
-    public PictogramsLibraryGroupView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public GroupView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
                 R.styleable.Custom_Picto,
@@ -59,22 +59,6 @@ public class PictogramsLibraryGroupView extends TarjetView{
         init();
     }
 
-    public PictogramsLibraryGroupView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-        TypedArray a = context.getTheme().obtainStyledAttributes(
-                attrs,
-                R.styleable.Custom_Picto,
-                0, 0);
-        try {
-            Custom_Texto = a.getString(R.styleable.Custom_Picto_Texto);
-            Custom_Color = a.getColor(R.styleable.Custom_Picto_Color, getResources().getColor(R.color.Black));
-            //    Custom_Imagen = a.getInteger(R.styleable.Custom_Picto_Imagen, 0);
-        } finally {
-            a.recycle();
-        }
-        init();
-    }
 
     private void init() {
         inflate(getContext(), R.layout.group, this);
@@ -88,8 +72,8 @@ public class PictogramsLibraryGroupView extends TarjetView{
     }
 
     public void setCustom_Img(Drawable imagen) {
+        Glide.with(getContext()).load(imagen).into(icon);
         this.Custom_Imagen = imagen;
-        icon.setImageDrawable(imagen);
         invalidate();
         requestLayout();
     }
@@ -105,8 +89,8 @@ public class PictogramsLibraryGroupView extends TarjetView{
 
     private void setData(){
         id=grupo.getId();
-        this.setCustom_Img(this.grupo.getDrawable());
         this.setCustom_Texto(grupo.getLocaleName());
+        this.setCustom_Img(this.grupo.getDrawable());
     }
 
     public void setCustom_Texto(String t) {

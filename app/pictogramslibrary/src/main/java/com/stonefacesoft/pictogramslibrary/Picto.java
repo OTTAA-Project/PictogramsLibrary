@@ -21,14 +21,15 @@ import androidx.constraintlayout.widget.ConstraintSet;
 
 public class Picto extends Tarjeta {
     private int color;
-    private ArrayList<String> tags;
 
-    public Picto(JSONObject object) {
-        super(object);
+    public Picto(JSONObject object,String locale) {
+        super(object,locale);
+        color=JsonManager.JsonObjectGetInt(DataObject,"tipo","Picto");
     }
 
-    public Picto(String localeName, String englisName, Drawable drawable, int id) {
-        super(localeName, englisName, drawable, id);
+    public Picto(String localeName, String englisName, Drawable drawable, int id,int color,String locale) {
+        super(localeName, englisName, drawable, id,locale);
+        this.color=color;
     }
 
     public int getColor() {
@@ -46,4 +47,20 @@ public class Picto extends Tarjeta {
     public void setTags(ArrayList<String> tags) {
         this.tags = tags;
     }
+
+    @Override
+    public JSONObject toJsonObject() {
+        if(DataObject==null)
+            DataObject=JsonManager.createJsonObject();
+        JsonManager.JsonObjectloadInt(DataObject,"id",id,"Picto");
+        JSONObject text=JsonManager.createJsonObject();
+        JsonManager.JsonObjectloadString(text,locale,localeName,"Picto");
+        JsonManager.JsonObjectloadString(text,"en",englisName,"Picto");
+        JsonManager.JsonObjectloadObject(DataObject,"texto",text,"Picto");
+
+
+        return DataObject;
+    }
+
+
 }

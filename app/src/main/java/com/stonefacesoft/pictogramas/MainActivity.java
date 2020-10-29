@@ -3,14 +3,11 @@ package com.stonefacesoft.pictogramas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import com.stonefacesoft.pictogramslibrary.Grupo;
-import com.stonefacesoft.pictogramslibrary.LibreriaPictos;
-import com.stonefacesoft.pictogramslibrary.view.PictogramsLibraryGroupView;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.stonefacesoft.pictogramslibrary.Picto;
+import com.stonefacesoft.pictogramslibrary.view.GroupView;
+import com.stonefacesoft.pictogramslibrary.view.PictoView;
 
 /**
  * Skeleton of an Android Things activity.
@@ -31,15 +28,20 @@ import org.json.JSONObject;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private PictogramsLibraryGroupView groupView;
+    private GroupView groupView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        Grupo grupo=new Grupo("hola","hello",getResources().getDrawable(R.drawable.ic_lock_outline_black_24dp),0);
+        Grupo grupo=new Grupo("hola","hello",getResources().getDrawable(R.mipmap.ic_launcher),0,"es");
+        Picto picto=new Picto("hola","hello",getResources().getDrawable(R.mipmap.ic_launcher_round),1,2,"es");
         groupView=findViewById(R.id.pictogram0);
+        groupView.loadDrawable(R.mipmap.ic_launcher);
         groupView.setGrupo(grupo);
+        PictoView pictogramsView=findViewById(R.id.pictogram1);
+        pictogramsView.setPicto(picto);
+
 
 
     }

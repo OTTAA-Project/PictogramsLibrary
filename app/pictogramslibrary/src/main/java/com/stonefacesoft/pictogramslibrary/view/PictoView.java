@@ -12,18 +12,18 @@ import com.stonefacesoft.pictogramslibrary.R;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class PictogramsView extends TarjetView{
+public class PictoView extends TarjetView{
 
     private boolean isClicked;
     private int Custom_Color;
     private Picto picto;
 
-    public PictogramsView(@NonNull Context context) {
+    public PictoView(@NonNull Context context) {
         super(context);
         init();
     }
 
-    public PictogramsView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public PictoView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
@@ -39,7 +39,7 @@ public class PictogramsView extends TarjetView{
         init();
     }
 
-    public PictogramsView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public PictoView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
@@ -56,26 +56,9 @@ public class PictogramsView extends TarjetView{
         init();
     }
 
-    public PictogramsView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        TypedArray a = context.getTheme().obtainStyledAttributes(
-                attrs,
-                R.styleable.Custom_Picto,
-                0, 0);
-
-        try {
-            Custom_Texto = a.getString(R.styleable.Custom_Picto_Texto);
-            Custom_Color = a.getColor(R.styleable.Custom_Picto_Color, getResources().getColor(R.color.Black));
-//            Custom_Imagen = a.getInteger(R.styleable.Custom_Picto_Imagen, 0);
-        } finally {
-            a.recycle();
-        }
-        init();
-    }
 
     private void init() {
         inflate(getContext(), R.layout.pictogram, this);
-
         this.StrTittle = findViewById(R.id.grid_text);
         this.icon = findViewById(R.id.Imagen_Picto);
         this.Color = findViewById(R.id.color_Picto);
@@ -155,7 +138,33 @@ public class PictogramsView extends TarjetView{
     private void setData(){
         this.setCustom_Img(this.picto.getDrawable());
         this.setCustom_Texto(picto.getLocaleName());
-        this.setCustom_Color(picto.getColor());
+        cargarColor(picto.getColor());
         id=picto.getId();
+    }
+
+    private void cargarColor(int color) {
+        switch (color) {
+            case 1:
+                setCustom_Color(getResources().getColor(R.color.Yellow));
+                break;
+            case 2:
+               setCustom_Color(getResources().getColor(R.color.Orange));
+                break;
+            case 3:
+                setCustom_Color(getResources().getColor(R.color.YellowGreen));
+                break;
+            case 4:
+                setCustom_Color(getResources().getColor(R.color.DodgerBlue));
+                break;
+            case 5:
+                setCustom_Color(getResources().getColor(R.color.Magenta));
+                break;
+            case 6:
+                setCustom_Color(getResources().getColor(R.color.Black));
+                break;
+            default:
+                setCustom_Color(getResources().getColor(R.color.Black));
+                break;
+        }
     }
 }

@@ -1,11 +1,18 @@
-package com.stonefacesoft.pictogramslibrary;
+package com.stonefacesoft.pictogramslibrary.JsonUtils;
 
 import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
+/**
+ * <Objective>
+ *     Management the Json object files
+ * </Objective>
+ *
+ * */
 public class JSONObjectManager {
+
+
     public JSONObject createJsonObject(){
         JSONObject object=new JSONObject();
         return object;
@@ -32,6 +39,22 @@ public class JSONObjectManager {
             Log.e(className, "JsonObjectloadString: "+ e.getMessage() );
         }
     }
+    public void JsonObjectloadObject(JSONObject object,String name,Object value,String className){
+        try {
+            object.put(name,value);
+        } catch (JSONException e) {
+            Log.e(className, "JsonObjectloadString: "+ e.getMessage() );
+        }
+    }
+
+    public JSONObject JsonObjectGetJsonObject(JSONObject object,String name,Object value,String className){
+        try {
+          return  object.getJSONObject(name);
+        } catch (JSONException e) {
+            Log.e(className, "JsonObjectloadString: "+ e.getMessage() );
+        }
+        return createJsonObject();
+    }
 
     public String JsonObjectGetString(JSONObject object,String value,String className){
         try {
@@ -49,6 +72,17 @@ public class JSONObjectManager {
         }
         return null;
     }
+
+    public int JsonObjectGetInt(JSONObject object,String value,String className){
+        try {
+            return object.getInt(value);
+        } catch (JSONException e) {
+            Log.e(className, "JsonObjectGetString: "+e.getMessage() );
+        }
+        return -1;
+    }
+
+
 
 
 
