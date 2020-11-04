@@ -39,7 +39,7 @@ use Grandle :
 ```
 Or use the  Maven
 
-``
+```
 	<repositories>
 		<repository>
 		    <id>jitpack.io</id>
