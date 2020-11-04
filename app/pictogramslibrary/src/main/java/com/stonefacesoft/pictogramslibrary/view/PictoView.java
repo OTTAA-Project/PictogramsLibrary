@@ -5,8 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
-import com.stonefacesoft.pictogramslibrary.Grupo;
-import com.stonefacesoft.pictogramslibrary.Picto;
+import com.stonefacesoft.pictogramslibrary.PictogramsLibraryPictogram;
 import com.stonefacesoft.pictogramslibrary.R;
 
 import androidx.annotation.NonNull;
@@ -16,7 +15,7 @@ public class PictoView extends TarjetView{
 
     private boolean isClicked;
     private int Custom_Color;
-    private Picto picto;
+    private PictogramsLibraryPictogram pictogramsLibraryPictogram;
 
     public PictoView(@NonNull Context context) {
         super(context);
@@ -130,16 +129,16 @@ public class PictoView extends TarjetView{
     public int getIdPictogram() {
         return id;
     }
-    public void setPicto(Picto grupo) {
-        this.picto = grupo;
+    public void setPictogramsLibraryPictogram(PictogramsLibraryPictogram grupo) {
+        this.pictogramsLibraryPictogram = grupo;
         setData();
     }
 
     private void setData(){
-        this.setCustom_Img(this.picto.getDrawable());
-        this.setCustom_Texto(picto.getLocaleName());
-        cargarColor(picto.getColor());
-        id=picto.getId();
+        this.setCustom_Img(this.pictogramsLibraryPictogram.getDrawable());
+        this.setCustom_Texto(pictogramsLibraryPictogram.getLocaleName());
+        cargarColor(pictogramsLibraryPictogram.getColor());
+        id= pictogramsLibraryPictogram.getId();
     }
 
     private void cargarColor(int color) {

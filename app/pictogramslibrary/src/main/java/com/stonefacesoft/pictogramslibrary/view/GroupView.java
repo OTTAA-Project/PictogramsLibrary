@@ -7,19 +7,17 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.stonefacesoft.pictogramslibrary.Grupo;
-import com.stonefacesoft.pictogramslibrary.Interfaces.ModelTypes;
+import com.stonefacesoft.pictogramslibrary.PictogramsLibraryGroup;
 import com.stonefacesoft.pictogramslibrary.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.Group;
 
 public class GroupView extends TarjetView{
     private ImageView tagHora,tagUbicacion,tagSexo,tagEdad;
     private ImageView Color;
     private int Custom_Color;
-    private Grupo grupo;
+    private PictogramsLibraryGroup pictogramsLibraryGroup;
 
 
     public GroupView(@NonNull Context context) {
@@ -82,15 +80,15 @@ public class GroupView extends TarjetView{
                 StrTittle.setText(name);
     }
 
-    public void setGrupo(Grupo grupo) {
-        this.grupo = grupo;
+    public void setPictogramsLibraryGroup(PictogramsLibraryGroup pictogramsLibraryGroup) {
+        this.pictogramsLibraryGroup = pictogramsLibraryGroup;
         setData();
     }
 
     private void setData(){
-        id=grupo.getId();
-        this.setCustom_Texto(grupo.getLocaleName());
-        this.setCustom_Img(this.grupo.getDrawable());
+        id= pictogramsLibraryGroup.getId();
+        this.setCustom_Texto(pictogramsLibraryGroup.getLocaleName());
+        this.setCustom_Img(this.pictogramsLibraryGroup.getDrawable());
     }
 
     public void setCustom_Texto(String t) {

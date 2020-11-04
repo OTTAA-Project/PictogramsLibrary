@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.stonefacesoft.pictogramslibrary.Grupo;
-import com.stonefacesoft.pictogramslibrary.Picto;
+import com.stonefacesoft.pictogramslibrary.PictogramsLibraryGroup;
+import com.stonefacesoft.pictogramslibrary.PictogramsLibraryPictogram;
 import com.stonefacesoft.pictogramslibrary.view.GroupView;
 import com.stonefacesoft.pictogramslibrary.view.PictoView;
 
@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        Grupo grupo=new Grupo("hola","hello",getResources().getDrawable(R.mipmap.ic_launcher),0,"es");
-        Picto picto=new Picto("hola","hello",getResources().getDrawable(R.mipmap.ic_launcher_round),1,2,"es");
+        PictogramsLibraryGroup pictogramsLibraryGroup =new PictogramsLibraryGroup("hola","hello",getResources().getDrawable(R.mipmap.ic_launcher),0,"es");
+        PictogramsLibraryPictogram pictogramsLibraryPictogram =new PictogramsLibraryPictogram("hola","hello",getResources().getDrawable(R.mipmap.ic_launcher_round),1,2,"es");
         groupView=findViewById(R.id.pictogram0);
         groupView.loadDrawable(R.mipmap.ic_launcher);
-        groupView.setGrupo(grupo);
+        groupView.setPictogramsLibraryGroup(pictogramsLibraryGroup);
         PictoView pictogramsView=findViewById(R.id.pictogram1);
-        pictogramsView.setPicto(picto);
+        pictogramsView.setPictogramsLibraryPictogram(pictogramsLibraryPictogram);
 
 
 

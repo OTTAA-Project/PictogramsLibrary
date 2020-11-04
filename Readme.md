@@ -1,6 +1,6 @@
 ![image](https://ottaaproject.com/img/ottaa-project.svg)
 
-# Welcome to OTTAA Project wiki #
+# Welcome to OTTAA Project Pictograms Library #
 
 
 
@@ -11,3 +11,23 @@ You can be part of this life-changer tech, join us in this social impact open so
 
 
 [![](http://img.youtube.com/vi/zAL7yWxc-gU/0.jpg)](http://www.youtube.com/watch?v=zAL7yWxc-gU "Video")
+
+
+# Download
+
+For detailed instruction see [download pictogramslibrary]()
+
+You can download a project or jar from the GitHub's release page.
+
+Or use Grandle :
+
+```
+#!grandle
+
+//Grandle level app
+dependencies {
+    implementation project(path: ':app:pictogramslibrary')
+}
+
+```
+

@@ -19,15 +19,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintSet;
 
-public class Picto extends Tarjeta {
+public class PictogramsLibraryPictogram extends Tarjeta {
     private int color;
 
-    public Picto(JSONObject object,String locale) {
+    public PictogramsLibraryPictogram(JSONObject object, String locale) {
         super(object,locale);
         color=JsonManager.JsonObjectGetInt(DataObject,"tipo","Picto");
     }
 
-    public Picto(String localeName, String englisName, Drawable drawable, int id,int color,String locale) {
+    public PictogramsLibraryPictogram(String localeName, String englisName, Drawable drawable, int id, int color, String locale) {
         super(localeName, englisName, drawable, id,locale);
         this.color=color;
     }

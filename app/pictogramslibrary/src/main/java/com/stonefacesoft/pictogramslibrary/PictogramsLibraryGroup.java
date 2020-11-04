@@ -12,13 +12,13 @@ import org.json.JSONObject;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class Grupo extends Tarjeta {
+public class PictogramsLibraryGroup extends Tarjeta {
 
-    public Grupo(JSONObject object,String locale){
+    public PictogramsLibraryGroup(JSONObject object, String locale){
         super(object,locale);
     }
 
-    public Grupo(String localeName, String englisName, Drawable drawable, int id,String locale) {
+    public PictogramsLibraryGroup(String localeName, String englisName, Drawable drawable, int id, String locale) {
         super(localeName, englisName, drawable, id,locale);
     }
 
