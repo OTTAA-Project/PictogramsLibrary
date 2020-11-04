@@ -22,7 +22,6 @@ You can download a project or jar from the GitHub's release page.
 use Grandle :
 
 ```
-#!grandle
 
 //Grandle
 allprojects {
@@ -38,9 +37,9 @@ dependencies {
 }
 
 ```
-Or use Maven
+Or use the  Maven
 
-´´´
+``
 	<repositories>
 		<repository>
 		    <id>jitpack.io</id>
@@ -55,4 +54,4 @@ Or use Maven
     	    <artifactId>PictogramsLibrary</artifactId>
     	    <version>Tag</version>
     	</dependency>
-´´´
+``
