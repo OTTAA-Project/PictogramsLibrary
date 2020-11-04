@@ -19,15 +19,40 @@ For detailed instruction see [download pictogramslibrary]()
 
 You can download a project or jar from the GitHub's release page.
 
-Or use Grandle :
+use Grandle :
 
 ```
 #!grandle
 
+//Grandle
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
 //Grandle level app
 dependencies {
-    implementation project(path: ':app:pictogramslibrary')
+    implementation 'com.github.OTTAA-Project:PictogramsLibrary:Tag'
 }
 
 ```
+Or use Maven
 
+´´´
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
+	//Add the dependencies
+
+		<dependency>
+    	    <groupId>com.github.OTTAA-Project</groupId>
+    	    <artifactId>PictogramsLibrary</artifactId>
+    	    <version>Tag</version>
+    	</dependency>
+´´´
