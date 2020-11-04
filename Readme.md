@@ -49,9 +49,9 @@ Or use the  Maven
 
 	//Add the dependencies
 
-		<dependency>
-    	    <groupId>com.github.OTTAA-Project</groupId>
-    	    <artifactId>PictogramsLibrary</artifactId>
-    	    <version>Tag</version>
-    	</dependency>
-```
+	 <dependency>
+    	<groupId>com.github.OTTAA-Project</groupId>
+    	<artifactId>PictogramsLibrary</artifactId>
+   	    <version>Tag</version>
+     </dependency>
+``
