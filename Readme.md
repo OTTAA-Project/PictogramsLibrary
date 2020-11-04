@@ -24,17 +24,17 @@ use Grandle :
 ```
 
 //Grandle
-allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+ allprojects {
+ repositories {
+	...
+	maven { url 'https://jitpack.io' }
+  }
+ }
 
 //Grandle level app
-dependencies {
+ dependencies {
     implementation 'com.github.OTTAA-Project:PictogramsLibrary:Tag'
-}
+ }
 
 ```
 Or use the  Maven
