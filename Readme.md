@@ -54,4 +54,4 @@ Or use the  Maven
     	    <artifactId>PictogramsLibrary</artifactId>
     	    <version>Tag</version>
     	</dependency>
-``
+```
