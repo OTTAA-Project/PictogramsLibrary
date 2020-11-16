@@ -34,15 +34,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        PictogramsLibraryGroup pictogramsLibraryGroup =new PictogramsLibraryGroup("hola","hello",getResources().getDrawable(R.mipmap.ic_launcher),0,"es");
+        PictogramsLibraryGroup pictogramsLibraryGroup =new PictogramsLibraryGroup("hola","hello",getResources().getDrawable(R.drawable.background_shape),0,"es");
         PictogramsLibraryPictogram pictogramsLibraryPictogram =new PictogramsLibraryPictogram("hola","hello",getResources().getDrawable(R.mipmap.ic_launcher_round),1,2,"es");
         groupView=findViewById(R.id.pictogram0);
         groupView.loadDrawable(R.mipmap.ic_launcher);
         groupView.setPictogramsLibraryGroup(pictogramsLibraryGroup);
         PictoView pictogramsView=findViewById(R.id.pictogram1);
         pictogramsView.setPictogramsLibraryPictogram(pictogramsLibraryPictogram);
-
-
 
     }
 

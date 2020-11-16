@@ -18,7 +18,28 @@ import java.util.HashMap;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintSet;
-
+/**
+ * <H1> Description </H1>
+ * Use this class in order to create one pictogram
+ * <H2>How to implements</H2>
+ *
+ * <code>
+ *     // Loading a json object class
+ *     <br>
+ *     PictogramsLibraryPictogram p=new PictogramsLibraryPictogram(JsonObject object,Locale locale);
+ * </code><br>
+ *<code>
+ *     // Loading a normal Tarjet object
+ *     <br>
+ *     PictogramsLibraryPictogram p=new PictogramsLibraryPictogram(String name,String englishName,Drawable drawable,int id,String locale);
+ *</code>
+ * <br>
+ * <H1> How to get Data</H1>
+ *
+ * <code>p.getColor(); // return one color id</code><br>
+ * <code>p.getTags(); // Return the tags related with this pictogram </code>
+ * <code>p.getImage();</code>
+ * */
 public class PictogramsLibraryPictogram extends Tarjeta {
     private int color;
 
@@ -48,6 +69,9 @@ public class PictogramsLibraryPictogram extends Tarjeta {
         this.tags = tags;
     }
 
+    /**
+     *
+     * */
     @Override
     public JSONObject toJsonObject() {
         if(DataObject==null)
