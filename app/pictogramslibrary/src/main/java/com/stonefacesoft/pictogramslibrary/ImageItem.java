@@ -8,7 +8,8 @@ import com.stonefacesoft.pictogramslibrary.Interfaces.ImageDataInterface;
  * In order to create one object such as an image<br>
  * In OTTAA Project one picture Image is ordered by the next description :
  * 1) Name :  the locale uri about the pictogram
- *2) EditedPictogram: the locale uri about the pictogram
+ * 2) EditedPictogram: the locale uri about the pictogram
+ * 3) Url :  
  * */
 public class ImageItem implements ImageDataInterface {
 
