@@ -1,4 +1,4 @@
-package com.stonefacesoft.pictogramslibrary;
+package com.stonefacesoft.pictogramslibrary.utils;
 
 import android.graphics.drawable.Drawable;
 

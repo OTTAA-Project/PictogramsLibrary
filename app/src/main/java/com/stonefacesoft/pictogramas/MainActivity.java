@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.stonefacesoft.pictogramslibrary.PictogramsLibraryGroup;
-import com.stonefacesoft.pictogramslibrary.PictogramsLibraryPictogram;
+import com.stonefacesoft.pictogramslibrary.Classes.Group;
+import com.stonefacesoft.pictogramslibrary.Classes.Pictogram;
 import com.stonefacesoft.pictogramslibrary.view.GroupView;
 import com.stonefacesoft.pictogramslibrary.view.PictoView;
+
+import org.json.JSONObject;
 
 /**
  * Skeleton of an Android Things activity.
@@ -34,13 +36,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        PictogramsLibraryGroup pictogramsLibraryGroup =new PictogramsLibraryGroup("hola","hello",getResources().getDrawable(R.drawable.background_shape),0,"es");
-        PictogramsLibraryPictogram pictogramsLibraryPictogram =new PictogramsLibraryPictogram("hola","hello",getResources().getDrawable(R.mipmap.ic_launcher_round),1,2,"es");
+        JSONObject picto=new JSONObject();
+        JSONObject group=new JSONObject();
+        Pictogram pictogram =new Pictogram(picto,"es");
+        Group group1 =new Group(group,"es");
         groupView=findViewById(R.id.pictogram0);
-        groupView.loadDrawable(R.mipmap.ic_launcher);
-        groupView.setPictogramsLibraryGroup(pictogramsLibraryGroup);
+        groupView.setPictogramsLibraryGroup(group1);
         PictoView pictogramsView=findViewById(R.id.pictogram1);
-        pictogramsView.setPictogramsLibraryPictogram(pictogramsLibraryPictogram);
+        pictogramsView.setPictogramsLibraryPictogram(pictogram);
 
     }
 

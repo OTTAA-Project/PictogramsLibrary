@@ -2,6 +2,7 @@ package com.stonefacesoft.pictogramslibrary.JsonUtils;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /**
@@ -16,6 +17,11 @@ public class JSONObjectManager {
     public JSONObject createJsonObject(){
         JSONObject object=new JSONObject();
         return object;
+    }
+
+    public JSONArray createJsonArray(){
+        JSONArray array=new JSONArray();
+        return array;
     }
 /**
  * Insert an string object
@@ -58,6 +64,8 @@ public class JSONObjectManager {
             Log.e(className, "JsonObjectloadString: "+ e.getMessage() );
         }
     }
+
+
  /**
   *
   * */
@@ -103,6 +111,17 @@ public class JSONObjectManager {
         return -1;
     }
 
+    /**
+     *
+     * */
+    public JSONArray getJsonArray(JSONObject object, String name, String className){
+        try {
+            return object.getJSONArray(name);
+        } catch (JSONException e) {
+            Log.e(className, "JsonObjectloadString: "+ e.getMessage() );
+        }
+        return createJsonArray();
+    }
 
 
 

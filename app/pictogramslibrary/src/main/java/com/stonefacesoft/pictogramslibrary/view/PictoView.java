@@ -5,17 +5,19 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
-import com.stonefacesoft.pictogramslibrary.PictogramsLibraryPictogram;
+import com.stonefacesoft.pictogramslibrary.Classes.Pictogram;
 import com.stonefacesoft.pictogramslibrary.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.io.File;
+
 public class PictoView extends TarjetView{
 
     private boolean isClicked;
     private int Custom_Color;
-    private PictogramsLibraryPictogram pictogramsLibraryPictogram;
+    private Pictogram pictogramsLibraryPictogram;
 
     public PictoView(@NonNull Context context) {
         super(context);
@@ -129,16 +131,22 @@ public class PictoView extends TarjetView{
     public int getIdPictogram() {
         return id;
     }
-    public void setPictogramsLibraryPictogram(PictogramsLibraryPictogram grupo) {
+    public void setPictogramsLibraryPictogram(Pictogram grupo) {
         this.pictogramsLibraryPictogram = grupo;
         setData();
     }
 
     private void setData(){
-        this.setCustom_Img(this.pictogramsLibraryPictogram.getDrawable());
-        this.setCustom_Texto(pictogramsLibraryPictogram.getLocaleName());
-        cargarColor(pictogramsLibraryPictogram.getColor());
         id= pictogramsLibraryPictogram.getId();
+        this.setCustom_Texto(pictogramsLibraryPictogram.getObjectName());
+        cargarColor(pictogramsLibraryPictogram.getType());
+        if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
+            glideAttatcher.loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryPictogram.getPictogram(),
+                    "drawable", mContext.getPackageName())),this.icon);
+        }else{
+            File picto=new File(pictogramsLibraryPictogram.getEditedPictogram());
+            glideAttatcher.loadDrawable(picto,this.icon);
+        }
     }
 
     private void cargarColor(int color) {
@@ -165,5 +173,9 @@ public class PictoView extends TarjetView{
                 setCustom_Color(getResources().getColor(R.color.Black));
                 break;
         }
+    }
+
+    public Pictogram getPictogram() {
+        return pictogramsLibraryPictogram;
     }
 }

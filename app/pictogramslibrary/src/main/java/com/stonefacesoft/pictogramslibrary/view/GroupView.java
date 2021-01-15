@@ -7,17 +7,19 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.stonefacesoft.pictogramslibrary.PictogramsLibraryGroup;
+import com.stonefacesoft.pictogramslibrary.Classes.Group;
 import com.stonefacesoft.pictogramslibrary.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.io.File;
+
 public class GroupView extends TarjetView{
     private ImageView tagHora,tagUbicacion,tagSexo,tagEdad;
     private ImageView Color;
     private int Custom_Color;
-    private PictogramsLibraryGroup pictogramsLibraryGroup;
+    private Group pictogramsLibraryGroup;
 
 
     public GroupView(@NonNull Context context) {
@@ -80,15 +82,21 @@ public class GroupView extends TarjetView{
                 StrTittle.setText(name);
     }
 
-    public void setPictogramsLibraryGroup(PictogramsLibraryGroup pictogramsLibraryGroup) {
+    public void setPictogramsLibraryGroup(Group pictogramsLibraryGroup) {
         this.pictogramsLibraryGroup = pictogramsLibraryGroup;
         setData();
     }
 
     private void setData(){
         id= pictogramsLibraryGroup.getId();
-        this.setCustom_Texto(pictogramsLibraryGroup.getLocaleName());
-        this.setCustom_Img(this.pictogramsLibraryGroup.getDrawable());
+        this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
+        if(pictogramsLibraryGroup.getEditedPictogram().isEmpty()){
+            glideAttatcher.loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),
+                    "drawable", mContext.getPackageName())),this.icon);
+        }else{
+            File picto=new File(pictogramsLibraryGroup.getEditedPictogram());
+            glideAttatcher.loadDrawable(picto,this.icon);
+        }
     }
 
     public void setCustom_Texto(String t) {
