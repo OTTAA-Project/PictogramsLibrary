@@ -41,6 +41,10 @@ public class TarjetView extends ConstraintLayout  {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+    public void setUpContext(Context mContext){
+        this.mContext=mContext;
+    }
+
     public void setUpGlideAttatcher(Context mContext){
         glideAttatcher=new GlideAttatcher(mContext);
     }
