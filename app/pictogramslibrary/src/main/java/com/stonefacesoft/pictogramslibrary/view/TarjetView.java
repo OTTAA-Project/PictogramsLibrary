@@ -44,6 +44,7 @@ public class TarjetView extends ConstraintLayout  {
     public void setUpGlideAttatcher(Context mContext){
         glideAttatcher=new GlideAttatcher(mContext);
     }
+
     public GlideAttatcher getGlideAttatcher() {
         return glideAttatcher;
     }
