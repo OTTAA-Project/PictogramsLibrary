@@ -3,7 +3,9 @@ package com.stonefacesoft.pictogramslibrary.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.util.AttributeSet;
+import android.widget.ImageView;
 
 import com.stonefacesoft.pictogramslibrary.Classes.Pictogram;
 import com.stonefacesoft.pictogramslibrary.R;
@@ -134,6 +136,7 @@ public class PictoView extends TarjetView{
     public void setPictogramsLibraryPictogram(Pictogram grupo) {
         this.pictogramsLibraryPictogram = grupo;
         setData();
+        this.icon.setScaleType(ImageView.ScaleType.CENTER);
     }
 
     private void setData(){
@@ -145,7 +148,10 @@ public class PictoView extends TarjetView{
                     "drawable", mContext.getPackageName())),this.icon);
         }else{
             File picto=new File(pictogramsLibraryPictogram.getEditedPictogram());
-            glideAttatcher.loadDrawable(picto,this.icon);
+            if(picto.exists())
+                glideAttatcher.loadDrawable(picto,this.icon);
+            else
+                glideAttatcher.loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
         }
     }
 
