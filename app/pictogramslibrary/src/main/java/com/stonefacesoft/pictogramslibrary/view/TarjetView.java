@@ -25,12 +25,13 @@ public class TarjetView extends ConstraintLayout  {
     public TarjetView(@NonNull Context context) {
         super(context);
         this.mContext=context;
-        glideAttatcher=new GlideAttatcher(context);
+
     }
 
     public TarjetView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
+
 
     public TarjetView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -40,6 +41,13 @@ public class TarjetView extends ConstraintLayout  {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+    public void setUpContext(Context mContext){
+        this.mContext=mContext;
+    }
+
+    public void setUpGlideAttatcher(Context mContext){
+        glideAttatcher=new GlideAttatcher(mContext);
+    }
 
     public GlideAttatcher getGlideAttatcher() {
         return glideAttatcher;
