@@ -141,6 +141,7 @@ public class PictoView extends TarjetView{
     private void setData(){
         id= pictogramsLibraryPictogram.getId();
         this.setCustom_Texto(pictogramsLibraryPictogram.getObjectName());
+        this.icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         cargarColor(pictogramsLibraryPictogram.getType());
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
             glideAttatcher.loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryPictogram.getPictogram(),
