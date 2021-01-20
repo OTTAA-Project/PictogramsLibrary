@@ -136,7 +136,6 @@ public class PictoView extends TarjetView{
     public void setPictogramsLibraryPictogram(Pictogram grupo) {
         this.pictogramsLibraryPictogram = grupo;
         setData();
-        this.icon.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     private void setData(){
