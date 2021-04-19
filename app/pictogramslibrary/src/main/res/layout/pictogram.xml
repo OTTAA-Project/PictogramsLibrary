@@ -13,7 +13,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="5dp"
-        android:scaleType="centerInside"
         android:src="@drawable/ic_agregar_nuevo"
         app:layout_constraintBottom_toBottomOf="@id/color_Picto"
         app:layout_constraintEnd_toEndOf="parent"
