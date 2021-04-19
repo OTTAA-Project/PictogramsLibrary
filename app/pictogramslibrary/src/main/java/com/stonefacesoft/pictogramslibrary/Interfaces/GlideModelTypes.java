@@ -55,40 +55,4 @@ public interface GlideModelTypes<GlideAttatcher> {
     @SuppressWarnings("unchecked")
     GlideAttatcher  loadDrawable(@Nullable Object model,ImageView imageView);
 
-    @NonNull
-    @CheckResult
-    GlideAttatcher loadCircleDrawable(@Nullable Bitmap bitmap, ImageView imageView);
-
-    @NonNull
-    @CheckResult
-    GlideAttatcher loadCircleDrawable(@Nullable Drawable drawable, ImageView imageView);
-
-    @NonNull
-    @CheckResult
-    GlideAttatcher loadCircleDrawable(@Nullable String string,ImageView imageView);
-
-    @NonNull
-    @CheckResult
-    GlideAttatcher loadCircleDrawable(@Nullable Uri uri, ImageView imageView);
-
-    @NonNull
-    @CheckResult
-    GlideAttatcher loadCircleDrawable(@Nullable File file, ImageView imageView);
-
-    @NonNull
-    @CheckResult
-    GlideAttatcher loadCircleDrawable(@RawRes @DrawableRes @Nullable Integer resourceId, ImageView imageView);
-
-    @Deprecated
-    @CheckResult
-    GlideAttatcher loadCircleDrawable(@Nullable URL url, ImageView imageView);
-
-    @NonNull
-    @CheckResult
-    GlideAttatcher loadCircleDrawable(@Nullable byte[] model,ImageView imageView);
-
-    @NonNull
-    @CheckResult
-    @SuppressWarnings("unchecked")
-    GlideAttatcher  loadCircleDrawable(@Nullable Object model,ImageView imageView);
 }
