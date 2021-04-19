@@ -137,6 +137,9 @@ public class PictoView extends TarjetView{
         this.pictogramsLibraryPictogram = grupo;
         setData();
     }
+    public ImageView getImageView(){
+        return icon;
+    }
 
     private void setData(){
         id= pictogramsLibraryPictogram.getId();
