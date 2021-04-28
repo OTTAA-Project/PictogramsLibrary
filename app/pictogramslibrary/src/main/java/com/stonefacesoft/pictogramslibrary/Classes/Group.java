@@ -37,6 +37,7 @@ public class Group extends OTTAAProjectObjects {
         manager.JsonObjectGetJsonObject(object,"sexo",gender,"Pictogram");
         manager.JsonObjectGetJsonObject(object,"edad",age,"Pictogram");
         manager.JsonObjectGetJsonObject(object,"ubicacion",location,"Pictogram");
+        manager.JsonObjectloadInt(object,"id",id,"Pictogram");
         return object;
     }
 }
