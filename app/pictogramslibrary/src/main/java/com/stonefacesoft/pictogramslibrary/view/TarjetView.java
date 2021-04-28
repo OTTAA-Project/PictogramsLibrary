@@ -16,6 +16,7 @@ public class TarjetView extends ConstraintLayout  {
     protected TextView StrTittle;
     protected ImageView icon;
     protected ImageView Color;
+    protected ImageView kind_of_pictogram;
     protected int id;
     protected String Custom_Texto;
     protected Drawable Custom_Imagen;
@@ -53,4 +54,14 @@ public class TarjetView extends ConstraintLayout  {
         return glideAttatcher;
     }
 
+    public ImageView getKindOfPictogramImageView(){
+        return kind_of_pictogram;
+    }
+
+    public void changKindOfPictogramVisibility(){
+       if(kind_of_pictogram.getVisibility()==VISIBLE)
+        kind_of_pictogram.setVisibility(INVISIBLE);
+       else
+        kind_of_pictogram.setVisibility(VISIBLE);
+    }
 }

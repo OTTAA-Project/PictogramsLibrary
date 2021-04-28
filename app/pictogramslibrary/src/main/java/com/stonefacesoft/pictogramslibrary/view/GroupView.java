@@ -65,6 +65,7 @@ public class GroupView extends TarjetView{
         this.StrTittle = findViewById(R.id.grid_text);
         this.icon = findViewById(R.id.grid_image);
         this.Color = findViewById(R.id.color_Picto);
+        this.kind_of_pictogram = findViewById(R.id.kind_of_Picto);
         this.tagEdad=findViewById(R.id.tagCalendario);
         this.tagHora=findViewById(R.id.tagHora);
         this.tagUbicacion=findViewById(R.id.tagUbicacion);

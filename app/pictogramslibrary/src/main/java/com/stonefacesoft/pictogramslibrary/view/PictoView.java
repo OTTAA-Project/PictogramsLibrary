@@ -64,6 +64,7 @@ public class PictoView extends TarjetView{
         inflate(getContext(), R.layout.pictogram, this);
         this.StrTittle = findViewById(R.id.grid_text);
         this.icon = findViewById(R.id.Imagen_Picto);
+        this.kind_of_pictogram = findViewById(R.id.kind_of_Picto);
         this.Color = findViewById(R.id.color_Picto);
     }
     /**
@@ -88,6 +89,13 @@ public class PictoView extends TarjetView{
         invalidate();
         requestLayout();
     }
+
+    public void setKindOfPictogram(Drawable drawable){
+        this.kind_of_pictogram.setImageDrawable(drawable);
+        invalidate();
+        requestLayout();
+    }
+
     /**
      * Set up the name of the pictogram
      * */
@@ -187,4 +195,6 @@ public class PictoView extends TarjetView{
     public Pictogram getPictogram() {
         return pictogramsLibraryPictogram;
     }
+
+
 }
