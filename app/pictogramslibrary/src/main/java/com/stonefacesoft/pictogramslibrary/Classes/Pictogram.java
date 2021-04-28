@@ -39,6 +39,7 @@ public class Pictogram extends OTTAAProjectObjects{
         manager.JsonObjectGetJsonObject(object,"sexo",gender,"Pictogram");
         manager.JsonObjectGetJsonObject(object,"edad",age,"Pictogram");
         manager.JsonObjectGetJsonObject(object,"ubicacion",location,"Pictogram");
+        manager.JsonObjectloadInt(object,"tipo",type,"Pictogram");
         return object;
     }
 
