@@ -171,4 +171,9 @@ public class OTTAAProjectObjects {
         this.type=manager.JsonObjectGetInt(object,"tipo","PictogramLibrary");
         this.id=manager.JsonObjectGetInt(object,"id","PictogramLibrary");
     }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
 }
