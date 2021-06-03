@@ -58,9 +58,9 @@ public class TarjetView extends ConstraintLayout  {
         return kind_of_pictogram;
     }
 
-    public void changKindOfPictogramVisibility(){
+    public void changeKindOfPictogramVisibility(){
        if(kind_of_pictogram.getVisibility()==VISIBLE)
-        kind_of_pictogram.setVisibility(INVISIBLE);
+        kind_of_pictogram.setVisibility(GONE);
        else
         kind_of_pictogram.setVisibility(VISIBLE);
     }
