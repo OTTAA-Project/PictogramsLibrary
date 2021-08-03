@@ -254,8 +254,7 @@ public class GlideAttatcher implements GlideModelTypes {
     public RequestBuilder<Drawable> cornerRadious(RequestBuilder<Drawable> drawableRequestBuilder) {
         if (useCornerRadious)
             return drawableRequestBuilder.transform(new RoundedCorners(radius));
-        else
-            return drawableRequestBuilder;
+        return drawableRequestBuilder;
     }
 
     public RequestBuilder<Drawable>  useDiskCacheStrategic(RequestBuilder<Drawable> drawableRequestBuilder){
