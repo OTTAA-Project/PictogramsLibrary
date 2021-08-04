@@ -20,6 +20,7 @@ public class PictoView extends TarjetView{
     private boolean isClicked;
     private int Custom_Color;
     private Pictogram pictogramsLibraryPictogram;
+    private boolean useDiskCacheStrategy,useDecodeFormata355;
 
     public PictoView(@NonNull Context context) {
         super(context);
@@ -155,16 +156,18 @@ public class PictoView extends TarjetView{
         this.icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         cargarColor(pictogramsLibraryPictogram.getType());
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
-            glideAttatcher.useDiskCacheStrategy().useDecodeFormatRGB565().loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryPictogram.getPictogram(),
+            glideAttatcher.useDiskCacheStrategy().loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryPictogram.getPictogram(),
                     "drawable", mContext.getPackageName())),this.icon);
         }else{
             File picto=new File(pictogramsLibraryPictogram.getEditedPictogram());
             if(picto.exists())
-                glideAttatcher.useDiskCacheStrategy().useDecodeFormatRGB565().loadDrawable(picto,this.icon);
+                glideAttatcher.useDiskCacheStrategy().loadDrawable(picto,this.icon);
             else
-                glideAttatcher.useDiskCacheStrategy().useDecodeFormatRGB565().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
+                glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
         }
     }
+
+
 
     private void cargarColor(int color) {
         switch (color) {
