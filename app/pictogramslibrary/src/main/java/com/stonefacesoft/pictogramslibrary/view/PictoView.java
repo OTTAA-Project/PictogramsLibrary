@@ -155,14 +155,14 @@ public class PictoView extends TarjetView{
         this.icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         cargarColor(pictogramsLibraryPictogram.getType());
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
-            glideAttatcher.loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryPictogram.getPictogram(),
+            glideAttatcher.useDiskCacheStrategy().useDecodeFormatRGB565().loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryPictogram.getPictogram(),
                     "drawable", mContext.getPackageName())),this.icon);
         }else{
             File picto=new File(pictogramsLibraryPictogram.getEditedPictogram());
             if(picto.exists())
-                glideAttatcher.loadDrawable(picto,this.icon);
+                glideAttatcher.useDiskCacheStrategy().useDecodeFormatRGB565().loadDrawable(picto,this.icon);
             else
-                glideAttatcher.loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
+                glideAttatcher.useDiskCacheStrategy().useDecodeFormatRGB565().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
         }
     }
 

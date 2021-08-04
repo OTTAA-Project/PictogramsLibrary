@@ -13,9 +13,11 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.Request;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.stonefacesoft.pictogramslibrary.Interfaces.GlideModelTypes;
@@ -32,6 +34,7 @@ public class GlideAttatcher implements GlideModelTypes {
     private int scaleType=0;
     private boolean useDiskCacheStrategy;
     private boolean useCornerRadious;
+    private boolean useDecodeFormat;
 
 
     public GlideAttatcher(@NonNull Context mContext) {
@@ -56,6 +59,11 @@ public class GlideAttatcher implements GlideModelTypes {
 
     public GlideAttatcher useDiskCacheStrategy(){
         this.useDiskCacheStrategy = true;
+        return this;
+    }
+
+    public GlideAttatcher useDecodeFormatRGB565(){
+        this.useDecodeFormat = true;
         return this;
     }
 
@@ -153,7 +161,7 @@ public class GlideAttatcher implements GlideModelTypes {
     @Override
     public Object loadDrawable(@Nullable Bitmap bitmap, ImageView imageView) {
         if (isValidContextFromGlide(mContext))
-            glideScaleItem(cornerRadious(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(bitmap).override(width, height)))).into(imageView);
+            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(bitmap).override(width, height))))).into(imageView);
         return this;
     }
 
@@ -161,7 +169,7 @@ public class GlideAttatcher implements GlideModelTypes {
     @Override
     public Object loadDrawable(@Nullable Drawable drawable, ImageView imageView) {
         if (isValidContextFromGlide(mContext))
-            glideScaleItem(cornerRadious(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(drawable).override(width, height)))).into(imageView);
+            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(drawable).override(width, height))))).into(imageView);
         return this;
     }
 
@@ -169,7 +177,7 @@ public class GlideAttatcher implements GlideModelTypes {
     @Override
     public Object loadDrawable(@Nullable String string, ImageView imageView) {
         if (isValidContextFromGlide(mContext))
-            glideScaleItem(cornerRadious(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(string).override(width, height)))).into(imageView);
+            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(string).override(width, height))))).into(imageView);
         return this;
     }
 
@@ -177,7 +185,7 @@ public class GlideAttatcher implements GlideModelTypes {
     @Override
     public Object loadDrawable(@Nullable Uri uri, ImageView imageView) {
         if (isValidContextFromGlide(mContext))
-            glideScaleItem(cornerRadious(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uri).override(width, height)))).into(imageView);
+            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uri).override(width, height))))).into(imageView);
         return this;
     }
 
@@ -185,7 +193,7 @@ public class GlideAttatcher implements GlideModelTypes {
     @Override
     public Object loadDrawable(@Nullable File file, ImageView imageView) {
         if (isValidContextFromGlide(mContext))
-            glideScaleItem(cornerRadious(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(file).override(width, height)))).into(imageView);
+            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(file).override(width, height))))).into(imageView);
         return this;
     }
 
@@ -193,14 +201,14 @@ public class GlideAttatcher implements GlideModelTypes {
     @Override
     public Object loadDrawable(@Nullable Integer resourceId, ImageView imageView) {
         if (isValidContextFromGlide(mContext))
-            glideScaleItem(cornerRadious(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(resourceId).override(width, height)))).into(imageView);
+            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(resourceId).override(width, height))))).into(imageView);
         return this;
     }
 
     @Override
     public Object loadDrawable(@Nullable URL url, ImageView imageView) {
         if (isValidContextFromGlide(mContext))
-            glideScaleItem(useDiskCacheStrategic(cornerRadious(getGlide().getRequestManagerRetriever().get(mContext).load(url).override(width, height)))).into(imageView);
+            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(url).override(width, height))))).into(imageView);
         return this;
     }
 
@@ -208,7 +216,7 @@ public class GlideAttatcher implements GlideModelTypes {
     @Override
     public Object loadDrawable(@Nullable byte[] model, ImageView imageView) {
         if (isValidContextFromGlide(mContext))
-            glideScaleItem(useDiskCacheStrategic(cornerRadious(getGlide().getRequestManagerRetriever().get(mContext).load(model).override(width, height)))).into(imageView);
+            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(model).override(width, height))))).into(imageView);
         return this;
     }
 
@@ -216,7 +224,7 @@ public class GlideAttatcher implements GlideModelTypes {
     @Override
     public Object loadDrawable(@Nullable Object model, ImageView imageView) {
         if (isValidContextFromGlide(mContext))
-            glideScaleItem(useDiskCacheStrategic(cornerRadious(getGlide().getRequestManagerRetriever().get(mContext).load(model).override(width, height)))).into(imageView);
+            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(model).override(width, height))))).into(imageView);
         return this;
     }
 
@@ -260,6 +268,13 @@ public class GlideAttatcher implements GlideModelTypes {
     public RequestBuilder<Drawable>  useDiskCacheStrategic(RequestBuilder<Drawable> drawableRequestBuilder){
         if(useDiskCacheStrategy)
             return drawableRequestBuilder.diskCacheStrategy(DiskCacheStrategy.ALL);
+        return drawableRequestBuilder;
+    }
+
+    public RequestBuilder<Drawable> useDecodeFormat(RequestBuilder<Drawable> drawableRequestBuilder){
+        if(useDecodeFormat){
+            return drawableRequestBuilder.format(DecodeFormat.PREFER_RGB_565);
+        }
         return drawableRequestBuilder;
     }
 
