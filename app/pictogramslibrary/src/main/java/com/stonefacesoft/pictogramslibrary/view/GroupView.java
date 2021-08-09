@@ -14,6 +14,8 @@ import com.stonefacesoft.pictogramslibrary.R;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.json.JSONArray;
+
 import java.io.File;
 
 public class GroupView extends TarjetView{
@@ -102,7 +104,19 @@ public class GroupView extends TarjetView{
             else
                 glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryGroup.getUrl()),this.icon);
         }
+        loadPictogram(pictogramsLibraryGroup.getLocation(),mContext.getResources().getDrawable(R.drawable.ic_location_on_black_24dp),mContext.getResources().getDrawable(R.drawable.ic_location_off_black_24dp),tagHora);
+        loadPictogram(pictogramsLibraryGroup.getAge(),mContext.getResources().getDrawable(R.drawable.ic_baseline_wc_24),mContext.getResources().getDrawable(R.drawable.ic_baseline_disable_24),tagHora);
+        loadPictogram(pictogramsLibraryGroup.getGender(),mContext.getResources().getDrawable(R.drawable.ic_face_black_on_24dp),mContext.getResources().getDrawable(R.drawable.ic_location_off_black_24dp),tagHora);
+        loadPictogram(pictogramsLibraryGroup.getHour(),mContext.getResources().getDrawable(R.drawable.ic_timer_black_24dp),mContext.getResources().getDrawable(R.drawable.ic_timer_off_black_24dp),tagHora);
 
+
+    }
+
+    private void loadPictogram(JSONArray array,Drawable drawable,Drawable drawableFalse,ImageView view){
+        if(array != null)
+            view.setImageDrawable(drawable);
+        else
+            view.setImageDrawable(drawableFalse);
     }
 
     public void setCustom_Texto(String t) {
