@@ -3,6 +3,7 @@ package com.stonefacesoft.pictogramslibrary.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
@@ -92,12 +93,16 @@ public class GroupView extends TarjetView{
         id= pictogramsLibraryGroup.getId();
         this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
         if(pictogramsLibraryGroup.getEditedPictogram().isEmpty()){
-            glideAttatcher.loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),
+            glideAttatcher.useDiskCacheStrategy().loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),
                     "drawable", mContext.getPackageName())),this.icon);
         }else{
             File picto=new File(pictogramsLibraryGroup.getEditedPictogram());
-            glideAttatcher.loadDrawable(picto,this.icon);
+            if(picto.exists())
+                glideAttatcher.useDiskCacheStrategy().loadDrawable(picto,this.icon);
+            else
+                glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryGroup.getUrl()),this.icon);
         }
+
     }
 
     public void setCustom_Texto(String t) {
