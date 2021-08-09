@@ -113,7 +113,7 @@ public class GroupView extends TarjetView{
     }
 
     private void loadPictogram(JSONArray array,Drawable drawable,Drawable drawableFalse,ImageView view){
-        if(array != null)
+        if(array.length() != 0)
             view.setImageDrawable(drawable);
         else
             view.setImageDrawable(drawableFalse);
