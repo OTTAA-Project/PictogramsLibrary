@@ -104,12 +104,10 @@ public class GroupView extends TarjetView{
             else
                 glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryGroup.getUrl()),this.icon);
         }
-        loadPictogram(pictogramsLibraryGroup.getLocation(),mContext.getResources().getDrawable(R.drawable.ic_location_on_black_24dp),mContext.getResources().getDrawable(R.drawable.ic_location_off_black_24dp),tagUbicacion);
-        loadPictogram(pictogramsLibraryGroup.getAge(),mContext.getResources().getDrawable(R.drawable.ic_baseline_wc_24),mContext.getResources().getDrawable(R.drawable.ic_baseline_disable_24),tagSexo);
-        loadPictogram(pictogramsLibraryGroup.getGender(),mContext.getResources().getDrawable(R.drawable.ic_face_black_on_24dp),mContext.getResources().getDrawable(R.drawable.ic_location_off_black_24dp),tagEdad);
-        loadPictogram(pictogramsLibraryGroup.getHour(),mContext.getResources().getDrawable(R.drawable.ic_timer_black_24dp),mContext.getResources().getDrawable(R.drawable.ic_timer_off_black_24dp),tagHora);
-
-
+        loadPictogram(pictogramsLibraryGroup.getLocation(),this.getResources().getDrawable(R.drawable.ic_location_on_black_24dp),this.getResources().getDrawable(R.drawable.ic_location_off_black_24dp),tagUbicacion);
+        loadPictogram(pictogramsLibraryGroup.getAge(),this.getResources().getDrawable(R.drawable.ic_baseline_wc_24),this.getResources().getDrawable(R.drawable.ic_baseline_disable_24),tagSexo);
+        loadPictogram(pictogramsLibraryGroup.getGender(),this.getResources().getDrawable(R.drawable.ic_face_black_on_24dp),this.getResources().getDrawable(R.drawable.ic_location_off_black_24dp),tagEdad);
+        loadPictogram(pictogramsLibraryGroup.getHour(),this.getResources().getDrawable(R.drawable.ic_timer_black_24dp),this.getResources().getDrawable(R.drawable.ic_timer_off_black_24dp),tagHora);
     }
 
     private void loadPictogram(JSONArray array,Drawable drawable,Drawable drawableFalse,ImageView view){
