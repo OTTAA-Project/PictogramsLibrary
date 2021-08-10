@@ -104,18 +104,25 @@ public class GroupView extends TarjetView{
             else
                 glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryGroup.getUrl()),this.icon);
         }
-        loadPictogram(pictogramsLibraryGroup.getLocation(),this.getResources().getDrawable(R.drawable.ic_location_on_black_24dp),this.getResources().getDrawable(R.drawable.ic_location_off_black_24dp),tagUbicacion);
-        loadPictogram(pictogramsLibraryGroup.getAge(),this.getResources().getDrawable(R.drawable.ic_baseline_wc_24),this.getResources().getDrawable(R.drawable.ic_baseline_disable_24),tagSexo);
-        loadPictogram(pictogramsLibraryGroup.getGender(),this.getResources().getDrawable(R.drawable.ic_face_black_on_24dp),this.getResources().getDrawable(R.drawable.ic_location_off_black_24dp),tagEdad);
-        loadPictogram(pictogramsLibraryGroup.getHour(),this.getResources().getDrawable(R.drawable.ic_timer_black_24dp),this.getResources().getDrawable(R.drawable.ic_timer_off_black_24dp),tagHora);
-    }
+  }
 
-    private void loadPictogram(JSONArray array,Drawable drawable,Drawable drawableFalse,ImageView view){
-        if(array.length() != 0)
-            view.setImageDrawable(drawable);
-        else
-            view.setImageDrawable(drawableFalse);
-    }
+  public void loadHourIcon(boolean value){
+      tagHora.setImageResource(value?R.drawable.ic_timer_black_24dp:R.drawable.ic_timer_off_black_24dp);
+  }
+  public void loadGenderIcon(boolean value){
+      tagSexo.setImageResource(value?R.drawable.ic_baseline_wc_24:R.drawable.ic_baseline_disable_24);
+
+  }
+  public void loadLocationIcon(boolean value){
+      tagUbicacion.setImageResource(value?R.drawable.ic_location_on_black_24dp:R.drawable.ic_location_off_black_24dp);
+  }
+
+  public void loadAgeIcon(boolean value){
+      tagUbicacion.setImageResource(value?R.drawable.ic_face_black_on_24dp:R.drawable.ic_face_black_24dp);
+
+  }
+
+
 
     public void setCustom_Texto(String t) {
         this.Custom_Texto = t;
