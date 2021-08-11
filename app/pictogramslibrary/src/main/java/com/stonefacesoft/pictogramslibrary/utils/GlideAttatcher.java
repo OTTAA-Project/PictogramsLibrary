@@ -268,7 +268,7 @@ public class GlideAttatcher implements GlideModelTypes {
 
     public RequestBuilder<Drawable>  useDiskCacheStrategic(RequestBuilder<Drawable> drawableRequestBuilder){
         if(useDiskCacheStrategy)
-            return drawableRequestBuilder.diskCacheStrategy(DiskCacheStrategy.ALL);
+            return drawableRequestBuilder.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
         return drawableRequestBuilder;
     }
 
