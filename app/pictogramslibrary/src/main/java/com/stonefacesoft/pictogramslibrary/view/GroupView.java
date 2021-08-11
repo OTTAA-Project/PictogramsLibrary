@@ -92,7 +92,7 @@ public class GroupView extends TarjetView {
     private void setData() {
         id = pictogramsLibraryGroup.getId();
         this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
-        if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {
+        if (pictogramsLibraryGroup.getEditedPictogram().isEmpty() && !pictogramsLibraryGroup.getPictogram().isEmpty()) {
             glideAttatcher.useDiskCacheStrategy().loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),
                     "drawable", mContext.getPackageName())), this.icon);
         } else {
