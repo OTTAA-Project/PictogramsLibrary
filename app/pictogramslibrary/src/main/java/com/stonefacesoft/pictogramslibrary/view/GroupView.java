@@ -93,7 +93,7 @@ public class GroupView extends TarjetView {
         id = pictogramsLibraryGroup.getId();
         this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
         if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {
-            glideAttatcher.useDiskCacheStrategy().loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),
+            glideAttatcher.setHeight(icon.getHeight()).setWidth(icon.getWidth()).useDiskCacheStrategy().loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),
                     "drawable", mContext.getPackageName())), this.icon);
         } else {
             File picto = new File(pictogramsLibraryGroup.getEditedPictogram());

@@ -157,7 +157,7 @@ public class PictoView extends TarjetView{
         cargarColor(pictogramsLibraryPictogram.getType());
 
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
-            glideAttatcher.useDiskCacheStrategy().loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryPictogram.getPictogram(),
+            glideAttatcher.setWidth(icon.getWidth()).setHeight(icon.getHeight()).useDiskCacheStrategy().loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryPictogram.getPictogram(),
                     "drawable", mContext.getPackageName())),this.icon);
         }else{
             File picto=new File(pictogramsLibraryPictogram.getEditedPictogram());
