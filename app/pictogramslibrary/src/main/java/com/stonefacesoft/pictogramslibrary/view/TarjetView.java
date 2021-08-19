@@ -64,4 +64,5 @@ public class TarjetView extends ConstraintLayout  {
        else
         kind_of_pictogram.setVisibility(VISIBLE);
     }
+
 }

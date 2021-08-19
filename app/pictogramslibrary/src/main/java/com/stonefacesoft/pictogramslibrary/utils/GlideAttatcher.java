@@ -103,6 +103,8 @@ public class GlideAttatcher implements GlideModelTypes {
     }
 
 
+
+
     private Glide getGlide() {
         return glide;
     }
@@ -114,8 +116,8 @@ public class GlideAttatcher implements GlideModelTypes {
      */
     private boolean isValidContextFromGlide(Context context) {
         Activity activity = getmActivityFromContext(context);
-        if (activity == null)
-            return false;
+        if (activity == null){
+            return false;}
         return !isActivityDestroyed(activity);
     }
 
@@ -278,5 +280,7 @@ public class GlideAttatcher implements GlideModelTypes {
         }
         return drawableRequestBuilder;
     }
+
+
 
 }
