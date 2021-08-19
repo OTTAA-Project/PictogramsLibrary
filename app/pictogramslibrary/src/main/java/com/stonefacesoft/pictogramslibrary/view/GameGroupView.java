@@ -68,7 +68,7 @@ public class GameGroupView extends TarjetView{
         this.icon = findViewById(R.id.grid_image);
         this.Color = findViewById(R.id.color_Picto);
         this.kind_of_pictogram = findViewById(R.id.kind_of_Picto);
-        this.tagScore = findViewById(R.id.tagCalendario);
+        this.tagScore = findViewById(R.id.score);
     }
 
     public void setPictogramsLibraryGameGroup(GameGroup pictogramsLibraryGameGroup) {
