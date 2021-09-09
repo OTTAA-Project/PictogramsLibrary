@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background_shape"
     >
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="0dp"
@@ -13,7 +12,10 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
->
+    app:layout_constraintDimensionRatio="1:1"
+    android:background="@drawable/background_shape"
+
+    >
     <ImageView
         android:id="@+id/grid_image"
         android:layout_width="0dp"
