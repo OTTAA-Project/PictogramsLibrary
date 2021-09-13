@@ -96,13 +96,11 @@ public class GroupView extends TarjetView {
             glideAttatcher.setHeight(icon.getHeight()).setWidth(icon.getWidth()).useDiskCacheStrategy().loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),
                     "drawable", mContext.getPackageName())), this.icon);
         } else {
-            File picto = new File(pictogramsLibraryGroup.getEditedPictogram());
-            if (picto.exists())
-                glideAttatcher.useDiskCacheStrategy().loadDrawable(picto, this.icon);
-            else
-                glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryGroup.getUrl()), this.icon);
-        }
+            selectIcon();
+         }
     }
+
+
 
     public void loadHourIcon(boolean value) {
         tagHora.setImageResource(value ? R.drawable.ic_timer_black_24dp : R.drawable.ic_timer_off_black_24dp);
@@ -128,4 +126,12 @@ public class GroupView extends TarjetView {
         requestLayout();
     }
 
+    @Override
+    public void selectIcon() {
+        File picto = new File(pictogramsLibraryGroup.getEditedPictogram());
+        if (picto.exists())
+            glideAttatcher.useDiskCacheStrategy().loadDrawable(picto, this.icon);
+        else
+            glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryGroup.getUrl()), this.icon);
+    }
 }

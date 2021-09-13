@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/pictogramslibrary/src/main/res/layout-sw600dp/group.xml" value="0.14275956284153005" />
+        <entry key="app/pictogramslibrary/src/main/res/layout-sw600dp/pictogram.xml" value="0.272265625" />
         <entry key="app/pictogramslibrary/src/main/res/layout/group.xml" value="0.18931159420289856" />
+        <entry key="app/pictogramslibrary/src/main/res/layout/pictogram.xml" value="0.17654508611955422" />
       </map>
     </option>
   </component>

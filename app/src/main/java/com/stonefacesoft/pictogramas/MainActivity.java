@@ -29,7 +29,6 @@ import org.json.JSONObject;
  * You can find additional examples on GitHub: https://github.com/androidthings
  */
 public class MainActivity extends AppCompatActivity {
-
     private GroupView groupView;
 
     @Override
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         groupView.setPictogramsLibraryGroup(group1);
         PictoView pictogramsView=findViewById(R.id.pictogram1);
         pictogramsView.setPictogramsLibraryPictogram(pictogram);
-
     }
 
 

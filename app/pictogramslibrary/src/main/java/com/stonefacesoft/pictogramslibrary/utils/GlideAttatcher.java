@@ -21,6 +21,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.Request;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.signature.ObjectKey;
 import com.stonefacesoft.pictogramslibrary.Interfaces.GlideModelTypes;
 import com.stonefacesoft.pictogramslibrary.R;
 
@@ -68,7 +69,7 @@ public class GlideAttatcher implements GlideModelTypes {
      * clean the glide memory if you need
      */
     public void clearMemory() {
-        if(getAvailableMemory().lowMemory)
+        if(!isValidContextFromGlide(mContext))
             glide.clearMemory();
     }
 
@@ -140,7 +141,7 @@ public class GlideAttatcher implements GlideModelTypes {
     @Override
     public Object loadDrawable(@Nullable Uri uri, ImageView imageView) {
         if (isValidContextFromGlide(mContext)) {
-            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uri).fallback(R.drawable.ic_baseline_cloud_download_24).error(R.drawable.ic_baseline_cloud_download_24).override(width, height))))).into(imageView);
+            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uri).fallback(R.drawable.ic_baseline_cloud_download_24).override(width, height))))).into(imageView);
             clearMemory();
         }
         return this;
@@ -169,7 +170,7 @@ public class GlideAttatcher implements GlideModelTypes {
     @Override
     public Object loadDrawable(@Nullable URL url, ImageView imageView) {
         if (isValidContextFromGlide(mContext)){
-            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(url).fallback(R.drawable.ic_baseline_cloud_download_24).error(R.drawable.ic_baseline_cloud_download_24).override(width, height))))).into(imageView);
+            glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(url).signature(new ObjectKey(url)).error(R.drawable.ic_baseline_cloud_download_24).override(width, height))))).into(imageView);
             clearMemory();
         }
         return this;
@@ -251,6 +252,8 @@ public class GlideAttatcher implements GlideModelTypes {
             activityManager.getMemoryInfo(memoryInfo);
             return memoryInfo;
     }
+
+
 
 
 

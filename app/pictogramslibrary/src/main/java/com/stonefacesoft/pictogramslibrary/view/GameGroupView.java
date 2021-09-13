@@ -83,11 +83,7 @@ public class GameGroupView extends TarjetView{
             glideAttatcher.setHeight(icon.getHeight()).setWidth(icon.getWidth()).useDiskCacheStrategy().loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGameGroup.getPictogram(),
                     "drawable", mContext.getPackageName())), this.icon);
         } else {
-            File picto = new File(pictogramsLibraryGameGroup.getEditedPictogram());
-            if (picto.exists())
-                glideAttatcher.useDiskCacheStrategy().loadDrawable(picto, this.icon);
-            else
-                glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryGameGroup.getUrl()), this.icon);
+            selectIcon();
         }
     }
     public void setCustom_Texto(String t) {
@@ -113,5 +109,12 @@ public class GameGroupView extends TarjetView{
         this.tagScore.setImageDrawable(drawable);
     }
 
-
+    @Override
+    public void selectIcon() {
+        File picto = new File(pictogramsLibraryGameGroup.getEditedPictogram());
+        if (picto.exists())
+            glideAttatcher.useDiskCacheStrategy().loadDrawable(picto, this.icon);
+        else
+            glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryGameGroup.getUrl()), this.icon);
+    }
 }
