@@ -93,7 +93,7 @@ public class GroupView extends TarjetView {
         id = pictogramsLibraryGroup.getId();
         this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
         if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {
-            glideAttatcher.setHeight(icon.getHeight()).setWidth(icon.getWidth()).useDiskCacheStrategy().setRadius(30).UseCornerRadius(true).loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),
+            glideAttatcher.setHeight(icon.getHeight()).setWidth(icon.getWidth()).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),
                     "drawable", mContext.getPackageName())), this.icon);
         } else {
             selectIcon();
@@ -130,8 +130,8 @@ public class GroupView extends TarjetView {
     public void selectIcon() {
         File picto = new File(pictogramsLibraryGroup.getEditedPictogram());
         if (picto.exists())
-            glideAttatcher.useDiskCacheStrategy().loadDrawable(picto, this.icon);
+            glideAttatcher.useDiskCacheStrategy().UseCornerRadius(true).setRadius(25).loadDrawable(picto, this.icon);
         else
-            glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryGroup.getUrl()), this.icon);
+            glideAttatcher.useDiskCacheStrategy().UseCornerRadius(true).setRadius(25).loadDrawable(Uri.parse(pictogramsLibraryGroup.getUrl()), this.icon);
     }
 }
