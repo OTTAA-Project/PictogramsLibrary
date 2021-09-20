@@ -31,8 +31,8 @@ import java.net.URL;
 import static com.stonefacesoft.pictogramslibrary.utils.ValidateContext.isValidContextFromGlide;
 
 public class GlideAttatcher implements GlideModelTypes {
-    private final Glide glide;
-    private final Context mContext;
+    private  Glide glide;
+    private Context mContext;
     private int height = 150;
     private int width = 150;
     private int radius = 20;
@@ -45,6 +45,15 @@ public class GlideAttatcher implements GlideModelTypes {
     public GlideAttatcher(@NonNull Context mContext) {
         this.mContext = mContext;
         glide = Glide.get(this.mContext);
+    }
+
+    public GlideAttatcher(){
+
+    }
+    public GlideAttatcher loadContext(Context mContext){
+        this.mContext = mContext;
+        glide = Glide.get(this.mContext);
+        return this;
     }
 
     /*
