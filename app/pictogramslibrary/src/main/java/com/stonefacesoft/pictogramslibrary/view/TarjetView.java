@@ -72,7 +72,5 @@ public class TarjetView extends ConstraintLayout  {
     @Override
     public void destroyDrawingCache() {
         super.destroyDrawingCache();
-        if(glideAttatcher!=null)
-            glideAttatcher.clearView(icon);
     }
 }
