@@ -222,6 +222,10 @@ public class GlideAttatcher implements GlideModelTypes {
         return this;
     }
 
+    public void clearView(ImageView imageView){
+        Glide.with(mContext).clear(imageView);
+    }
+
     /**
      * scale option method
      * 0 default value
