@@ -122,6 +122,8 @@ public class GlideAttatcher implements GlideModelTypes {
         if (isValidContextFromGlide(mContext)) {
             glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(bitmap).override(width, height))))).into(imageView);
             clearMemory();
+        }else{
+            Glide.with(mContext).pauseRequests();
         }
         return this;
     }
@@ -131,7 +133,8 @@ public class GlideAttatcher implements GlideModelTypes {
     public Object loadDrawable(@Nullable Drawable drawable, ImageView imageView) {
         if (isValidContextFromGlide(mContext)) {
             glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(drawable).override(width, height))))).into(imageView);
-            clearMemory();
+        }else{
+            Glide.with(mContext).pauseRequests();
         }
         return this;
     }
@@ -142,6 +145,8 @@ public class GlideAttatcher implements GlideModelTypes {
         if (isValidContextFromGlide(mContext)) {
             glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(string).override(width, height))))).into(imageView);
             clearMemory();
+        }else{
+            Glide.with(mContext).pauseRequests();
         }
         return this;
     }
@@ -152,6 +157,8 @@ public class GlideAttatcher implements GlideModelTypes {
         if (isValidContextFromGlide(mContext)) {
             glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uri).fallback(R.drawable.ic_baseline_cloud_download_24).override(width, height))))).into(imageView);
             clearMemory();
+        }else{
+            Glide.with(mContext).pauseRequests();
         }
         return this;
     }
@@ -162,6 +169,8 @@ public class GlideAttatcher implements GlideModelTypes {
         if (isValidContextFromGlide(mContext)) {
             glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(file).override(width, height))))).into(imageView);
             clearMemory();
+        }else{
+            Glide.with(mContext).pauseRequests();
         }
         return this;
     }
@@ -172,6 +181,8 @@ public class GlideAttatcher implements GlideModelTypes {
         if (isValidContextFromGlide(mContext)) {
             glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(resourceId).override(width, height))))).into(imageView);
             clearMemory();
+        }else{
+            Glide.with(mContext).pauseRequests();
         }
         return this;
     }
@@ -181,6 +192,8 @@ public class GlideAttatcher implements GlideModelTypes {
         if (isValidContextFromGlide(mContext)){
             glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(url).signature(new ObjectKey(url)).error(R.drawable.ic_baseline_cloud_download_24).override(width, height))))).into(imageView);
             clearMemory();
+        }else{
+            Glide.with(mContext).pauseRequests();
         }
         return this;
     }
@@ -191,6 +204,8 @@ public class GlideAttatcher implements GlideModelTypes {
         if (isValidContextFromGlide(mContext)) {
             glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(model).override(width, height))))).into(imageView);
             clearMemory();
+        }else{
+            Glide.with(mContext).pauseRequests();
         }
         return this;
     }
@@ -201,6 +216,8 @@ public class GlideAttatcher implements GlideModelTypes {
         if (isValidContextFromGlide(mContext)) {
             glideScaleItem(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(model))))).into(imageView);
             clearMemory();
+        }else{
+            Glide.with(mContext).pauseRequests();
         }
         return this;
     }
