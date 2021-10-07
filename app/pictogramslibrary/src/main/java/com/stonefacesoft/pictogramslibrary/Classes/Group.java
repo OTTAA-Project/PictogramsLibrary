@@ -40,4 +40,19 @@ public class Group extends OTTAAProjectObjects {
         manager.JsonObjectloadInt(object,"id",id,"Pictogram");
         return object;
     }
+
+    public Pictogram getPictogramFromGroup(){
+        Pictogram child = new Pictogram();
+        child.setName(name);
+        child.setName_en(name_en);
+        child.setPictogram(pictogram);
+        child.setEditedPictogram(editedPictogram);
+        child.setUrl(url);
+        child.setHour(hour);
+        child.setLocale(locale);
+        child.setLocation(location);
+        child.setGender(gender);
+        child.setId(id);
+        return child;
+    }
 }
