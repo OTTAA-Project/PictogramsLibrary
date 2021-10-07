@@ -43,6 +43,7 @@ public class Group extends OTTAAProjectObjects {
 
     public Pictogram getPictogramFromGroup(){
         Pictogram child = new Pictogram();
+        child.setId(id);
         child.setName(name);
         child.setName_en(name_en);
         child.setPictogram(pictogram);
@@ -52,7 +53,7 @@ public class Group extends OTTAAProjectObjects {
         child.setLocale(locale);
         child.setLocation(location);
         child.setGender(gender);
-        child.setId(id);
+        child.setType(0);
         return child;
     }
 }
