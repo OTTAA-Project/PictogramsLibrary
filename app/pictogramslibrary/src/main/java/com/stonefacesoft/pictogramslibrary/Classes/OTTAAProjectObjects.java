@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class OTTAAProjectObjects {
     protected String name;
     protected String name_en;
-    protected int id;
+    protected static int id;
     protected String pictogram;
     protected String editedPictogram;
     protected String url;
@@ -86,7 +86,7 @@ public class OTTAAProjectObjects {
         return null;
     }
 
-    public int getId() {
+    public static int getId() {
         return id;
     }
 
