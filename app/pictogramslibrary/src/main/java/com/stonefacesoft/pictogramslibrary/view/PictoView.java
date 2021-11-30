@@ -157,15 +157,26 @@ public class PictoView extends TarjetView{
         this.icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         cargarColor(pictogramsLibraryPictogram.getType());
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
-            Drawable drawable = mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryPictogram.getPictogram(),"drawable", mContext.getPackageName()));
-            if(drawable != null)
-                glideAttatcher.setWidth(icon.getWidth()).setHeight(icon.getHeight()).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
-            else
-                glideAttatcher.setWidth(icon.getWidth()).setHeight(icon.getHeight()).useDiskCacheStrategy().loadDrawable(mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24),this.icon);
+            Drawable drawable = findResource();
+             glideAttatcher.setWidth(icon.getWidth()).setHeight(icon.getHeight()).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
         }else{
             selectIcon();
         }
     }
+
+    @Override
+    protected Drawable findResource() {
+        Drawable drawable = null;
+        try{
+            drawable = mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryPictogram.getPictogram(),"drawable",mContext.getPackageName()));
+        }catch (Exception ex){
+        }
+        if(drawable != null)
+            return drawable;
+        else
+            return mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
+    }
+
 
     @Override
     public void selectIcon(){

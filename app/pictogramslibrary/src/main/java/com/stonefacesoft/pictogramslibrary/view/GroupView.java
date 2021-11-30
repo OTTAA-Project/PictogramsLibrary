@@ -93,14 +93,25 @@ public class GroupView extends TarjetView {
         id = pictogramsLibraryGroup.getId();
         this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
         if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {
-            glideAttatcher.setHeight(icon.getHeight()).setWidth(icon.getWidth()).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),
-                    "drawable", mContext.getPackageName())), this.icon);
+            Drawable drawable = findResource();
+            glideAttatcher.setHeight(icon.getHeight()).setWidth(icon.getWidth()).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(drawable, this.icon);
         } else {
             selectIcon();
          }
     }
 
-
+    @Override
+    protected Drawable findResource() {
+        Drawable drawable = null;
+        try{
+            drawable = mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),"drawable",mContext.getPackageName()));
+        }catch (Exception ex){
+        }
+        if(drawable !=  null)
+            return drawable;
+        else
+            return mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
+    }
 
     public void loadHourIcon(boolean value) {
         tagHora.setImageResource(value ? R.drawable.ic_timer_black_24dp : R.drawable.ic_timer_off_black_24dp);

@@ -80,12 +80,26 @@ public class GameGroupView extends TarjetView{
         id = pictogramsLibraryGameGroup.getId();
         setCustom_Texto(pictogramsLibraryGameGroup.getObjectName());
         if (pictogramsLibraryGameGroup.getEditedPictogram().isEmpty()) {
-            glideAttatcher.setHeight(icon.getHeight()).setWidth(icon.getWidth()).useDiskCacheStrategy().loadDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGameGroup.getPictogram(),
-                    "drawable", mContext.getPackageName())), this.icon);
+            Drawable drawable = findResource();
+            glideAttatcher.setHeight(icon.getHeight()).setWidth(icon.getWidth()).useDiskCacheStrategy().loadDrawable(drawable, this.icon);
         } else {
             selectIcon();
         }
     }
+
+    @Override
+    protected Drawable findResource() {
+        Drawable drawable = null;
+        try{
+            drawable = mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGameGroup.getPictogram(),"drawable",mContext.getPackageName()));
+        }catch (Exception ex){
+        }
+        if(drawable !=  null)
+            return drawable;
+        else
+            return mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
+    }
+
     public void setCustom_Texto(String t) {
         this.Custom_Texto = t;
         StrTittle.setText(t);
