@@ -77,4 +77,12 @@ public class TarjetView extends ConstraintLayout  {
     public void destroyDrawingCache() {
         super.destroyDrawingCache();
     }
+
+    protected Drawable findResource(){
+        return null;
+    }
+
+    protected  void setData(){
+
+    }
 }
