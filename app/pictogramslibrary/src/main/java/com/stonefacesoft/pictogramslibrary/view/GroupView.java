@@ -89,7 +89,7 @@ public class GroupView extends TarjetView {
         setData();
     }
 
-    private void setData() {
+    protected void setData() {
         id = pictogramsLibraryGroup.getId();
         this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
         if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {

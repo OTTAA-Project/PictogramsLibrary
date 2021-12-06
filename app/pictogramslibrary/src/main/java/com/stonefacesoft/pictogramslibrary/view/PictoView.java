@@ -151,7 +151,7 @@ public class PictoView extends TarjetView{
         return icon;
     }
 
-    private void setData(){
+    protected void setData(){
         id= pictogramsLibraryPictogram.getId();
         this.setCustom_Texto(pictogramsLibraryPictogram.getObjectName());
         this.icon.setScaleType(ImageView.ScaleType.FIT_CENTER);

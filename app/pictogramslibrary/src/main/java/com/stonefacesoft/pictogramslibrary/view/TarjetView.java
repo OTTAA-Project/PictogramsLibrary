@@ -81,4 +81,8 @@ public class TarjetView extends ConstraintLayout  {
     protected Drawable findResource(){
         return null;
     }
+
+    protected  void setData(){
+
+    }
 }

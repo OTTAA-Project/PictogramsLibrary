@@ -76,7 +76,7 @@ public class GameGroupView extends TarjetView{
         setData();
     }
 
-    private void setData() {
+    protected void setData() {
         id = pictogramsLibraryGameGroup.getId();
         setCustom_Texto(pictogramsLibraryGameGroup.getObjectName());
         if (pictogramsLibraryGameGroup.getEditedPictogram().isEmpty()) {
