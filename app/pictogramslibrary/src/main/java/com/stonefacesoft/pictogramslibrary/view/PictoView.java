@@ -180,11 +180,18 @@ public class PictoView extends TarjetView{
 
     @Override
     public void selectIcon(){
-        File picto=new File(pictogramsLibraryPictogram.getEditedPictogram());
-        if(picto.exists())
-            glideAttatcher.useDiskCacheStrategy().loadDrawable(picto,this.icon);
-        else
+        try{
+
+            File picto=new File(pictogramsLibraryPictogram.getEditedPictogram());
+            if(picto.exists())
+                glideAttatcher.useDiskCacheStrategy().loadDrawable(picto,this.icon);
+            else
+                glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
+        }catch (Exception ex){
             glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
+        }
+
+
 
     }
 
