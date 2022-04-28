@@ -73,6 +73,8 @@ public class TarjetView extends ConstraintLayout  {
         this.glideAttatcher = glideAttatcher;
     }
 
+
+
     @Override
     public void destroyDrawingCache() {
         super.destroyDrawingCache();
@@ -84,5 +86,10 @@ public class TarjetView extends ConstraintLayout  {
 
     protected  void setData(){
 
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
     }
 }

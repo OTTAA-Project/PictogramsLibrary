@@ -55,4 +55,6 @@ public interface GlideModelTypes<GlideAttatcher> {
     @SuppressWarnings("unchecked")
     GlideAttatcher  loadDrawable(@Nullable Object model,ImageView imageView);
 
+
+
 }
