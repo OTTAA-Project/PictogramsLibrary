@@ -9,7 +9,8 @@ public class ValidateContext {
     public static boolean isValidContextFromGlide(Context context) {
         Activity activity = getmActivityFromContext(context);
         if (activity == null){
-            return false;}
+            return false;
+        }
         return !isActivityDestroyed(activity);
     }
 
