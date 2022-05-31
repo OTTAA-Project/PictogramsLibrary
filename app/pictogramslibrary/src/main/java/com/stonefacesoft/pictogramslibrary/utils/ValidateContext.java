@@ -6,7 +6,7 @@ import android.content.Context;
 public class ValidateContext {
 
 
-    public static boolean isValidContextFromGlide(Context context) {
+    public static boolean isValidContext(Context context) {
         Activity activity = getmActivityFromContext(context);
         if (activity == null){
             return false;
