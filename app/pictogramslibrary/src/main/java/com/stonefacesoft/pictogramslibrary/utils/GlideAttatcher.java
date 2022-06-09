@@ -248,6 +248,7 @@ public class GlideAttatcher implements GlideModelTypes {
     public void destroy(){
         if(mContext!=null) {
             try{
+                getGlide().clearMemory();
                 Glide.with(mContext).onDestroy();
             }catch (Exception ex){
 
