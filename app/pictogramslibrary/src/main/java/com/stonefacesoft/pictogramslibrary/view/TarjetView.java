@@ -92,4 +92,12 @@ public class TarjetView extends ConstraintLayout  {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
     }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        if(glideAttatcher!=null){
+            glideAttatcher.destroy();
+        }
+    }
 }

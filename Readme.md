@@ -55,3 +55,16 @@ Or use the  Maven
    	    <version>Tag</version>
      </dependency>
 ``
+# Introduction
+This library is created in order to load different kind of pictograms on android.
+
+This library contains different objects such as designs of pictograms, groups and games.
+
+#How to use
+
+## Glide Attatcher
+
+With this class, you can load any picture format inside an object
+
+
+

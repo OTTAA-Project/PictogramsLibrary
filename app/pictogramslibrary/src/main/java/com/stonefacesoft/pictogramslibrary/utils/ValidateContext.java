@@ -3,6 +3,8 @@ package com.stonefacesoft.pictogramslibrary.utils;
 import android.app.Activity;
 import android.content.Context;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 public class ValidateContext {
 
 
@@ -24,10 +26,13 @@ public class ValidateContext {
         return null;
     }
 
+
     /**
      * @return show if the activity exist or not.
      */
     private static boolean isActivityDestroyed(Activity activity) {
         return activity.isDestroyed() || activity.isFinishing() || activity.isChangingConfigurations();
     }
+
+
 }

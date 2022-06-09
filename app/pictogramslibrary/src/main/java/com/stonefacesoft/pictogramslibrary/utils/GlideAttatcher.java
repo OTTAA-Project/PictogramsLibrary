@@ -42,7 +42,7 @@ public class GlideAttatcher implements GlideModelTypes {
         getGlide();
     }
 
-    public GlideAttatcher loadContext(Context mContext){
+    public GlideAttatcher loadContext(final @NonNull Context mContext){
         this.mContext = mContext;
         glide = Glide.get(this.mContext);
         return this;
@@ -168,8 +168,10 @@ public class GlideAttatcher implements GlideModelTypes {
     @NonNull
     @Override
     public Object loadDrawable(@Nullable byte[] model, ImageView imageView){
-        if(isValidContext(mContext))
+        if(isValidContext(mContext)) {
             glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(model)))))).into(imageView).waitForLayout();
+
+        }
         return this;
     }
 
@@ -244,6 +246,13 @@ public class GlideAttatcher implements GlideModelTypes {
     }
 
     public void destroy(){
+        if(mContext!=null) {
+            try{
+                Glide.with(mContext).onDestroy();
+            }catch (Exception ex){
+
+            }
+        }
     }
 
 
