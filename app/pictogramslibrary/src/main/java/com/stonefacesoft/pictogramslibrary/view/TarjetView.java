@@ -16,7 +16,7 @@ public class TarjetView extends ConstraintLayout  {
     protected TextView StrTittle;
     protected ImageView icon;
     protected ImageView Color;
-    protected ImageView kind_of_pictogram;
+    protected volatile ImageView kind_of_pictogram;
     protected int id;
     protected String Custom_Texto;
     protected Drawable Custom_Imagen;

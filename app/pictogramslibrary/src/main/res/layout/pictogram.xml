@@ -66,5 +66,7 @@
         app:layout_constraintTop_toBottomOf="@id/Imagen_Picto"
         app:layout_constraintStart_toEndOf="@id/grid_text"
         android:visibility="gone"
+        android:src="@drawable/ic_baseline_cloud_download_24"
+
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

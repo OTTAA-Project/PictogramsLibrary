@@ -62,6 +62,6 @@ android:background="@drawable/background_shape">
     app:layout_constraintStart_toEndOf="@id/grid_text"
     android:layout_margin="5dp"
     android:visibility="gone"
-    android:src="@color/FondoApp"
+    android:src="@drawable/ic_baseline_cloud_download_24"
     />
 </androidx.constraintlayout.widget.ConstraintLayout>

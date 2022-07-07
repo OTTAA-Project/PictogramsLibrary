@@ -19,7 +19,7 @@ public class PictoView extends TarjetView{
 
     private boolean isClicked;
     private int Custom_Color;
-    private Pictogram pictogramsLibraryPictogram;
+    private volatile Pictogram pictogramsLibraryPictogram;
     private boolean useDiskCacheStrategy,useDecodeFormata355;
     private boolean useGlideAttatcher;
 
