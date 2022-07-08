@@ -22,6 +22,8 @@ public class TarjetView extends ConstraintLayout  {
     protected Drawable Custom_Imagen;
     protected GlideAttatcher glideAttatcher;
     protected Context mContext;
+    protected int height;
+    protected int width;
 
     public TarjetView(@NonNull Context context) {
         super(context);
@@ -88,6 +90,10 @@ public class TarjetView extends ConstraintLayout  {
 
     }
 
+    public void setData(int height,int with){
+
+    }
+
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
@@ -99,5 +105,13 @@ public class TarjetView extends ConstraintLayout  {
         if(glideAttatcher!=null){
             glideAttatcher.destroy();
         }
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
     }
 }

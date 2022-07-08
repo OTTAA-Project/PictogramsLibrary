@@ -4,5 +4,8 @@
         <attr name="Texto" format="string" />
         <attr name="Imagen" format="integer"/>
         <attr name="Color" format="integer"/>
+        <attr name="iconHeight" format="integer"/>
+        <attr name="iconWidth" format="integer"/>
     </declare-styleable>
+
 </resources>

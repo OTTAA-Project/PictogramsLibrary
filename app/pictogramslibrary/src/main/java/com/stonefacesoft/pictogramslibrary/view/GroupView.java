@@ -37,6 +37,8 @@ public class GroupView extends TarjetView {
         try {
             Custom_Texto = a.getString(R.styleable.Custom_Picto_Texto);
             Custom_Color = a.getColor(R.styleable.Custom_Picto_Color, getResources().getColor(R.color.Black));
+            height = a.getInt(R.styleable.Custom_Picto_iconHeight,300);
+            width = a.getInt(R.styleable.Custom_Picto_iconWidth,300);
             //    Custom_Imagen = a.getInteger(R.styleable.Custom_Picto_Imagen, 0);
         } finally {
             a.recycle();
@@ -53,6 +55,8 @@ public class GroupView extends TarjetView {
         try {
             Custom_Texto = a.getString(R.styleable.Custom_Picto_Texto);
             Custom_Color = a.getColor(R.styleable.Custom_Picto_Color, getResources().getColor(R.color.Black));
+            height = a.getInt(R.styleable.Custom_Picto_iconHeight,300);
+            width = a.getInt(R.styleable.Custom_Picto_iconWidth,300);
             //    Custom_Imagen = a.getInteger(R.styleable.Custom_Picto_Imagen, 0);
         } finally {
             a.recycle();
@@ -94,7 +98,7 @@ public class GroupView extends TarjetView {
         this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
         if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {
             Drawable drawable = findResource();
-            glideAttatcher.setHeight(icon.getHeight()).setWidth(icon.getWidth()).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(drawable, this.icon);
+            glideAttatcher.setHeight(height).setWidth(width).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(drawable, this.icon);
         } else {
             selectIcon();
          }
@@ -145,4 +149,15 @@ public class GroupView extends TarjetView {
         else
             glideAttatcher.useDiskCacheStrategy().UseCornerRadius(true).setRadius(25).loadDrawable(Uri.parse(pictogramsLibraryGroup.getUrl()), this.icon);
     }
+
+    @Override
+    public void setData(int height, int with) {
+        id = pictogramsLibraryGroup.getId();
+        this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
+        if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {
+            Drawable drawable = findResource();
+            glideAttatcher.setHeight(height).setWidth(with).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(drawable, this.icon);
+        } else {
+            selectIcon();
+        }    }
 }

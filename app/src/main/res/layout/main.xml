@@ -9,6 +9,7 @@
     <com.stonefacesoft.pictogramslibrary.view.GroupView
         android:id="@+id/pictogram0"
         android:layout_width="0dp"
+
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/pictogram1"

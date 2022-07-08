@@ -37,7 +37,9 @@ public class PictoView extends TarjetView{
         try {
             Custom_Texto = a.getString(R.styleable.Custom_Picto_Texto);
             Custom_Color = a.getColor(R.styleable.Custom_Picto_Color, getResources().getColor(R.color.Black));
-//            Custom_Imagen = a.getInteger(R.styleable.Custom_Picto_Imagen, 0);
+            height = a.getInt(R.styleable.Custom_Picto_iconHeight,300);
+            width = a.getInt(R.styleable.Custom_Picto_iconWidth,300);
+            //            Custom_Imagen = a.getInteger(R.styleable.Custom_Picto_Imagen, 0);
         } finally {
             a.recycle();
         }
@@ -54,6 +56,8 @@ public class PictoView extends TarjetView{
         try {
             Custom_Texto = a.getString(R.styleable.Custom_Picto_Texto);
             Custom_Color = a.getColor(R.styleable.Custom_Picto_Color, getResources().getColor(R.color.Black));
+            height = a.getInt(R.styleable.Custom_Picto_iconHeight,300);
+            width = a.getInt(R.styleable.Custom_Picto_iconWidth,300);
 //            Custom_Imagen = a.getInteger(R.styleable.Custom_Picto_Imagen, 0);
         } finally {
             a.recycle();
@@ -158,7 +162,7 @@ public class PictoView extends TarjetView{
         cargarColor(pictogramsLibraryPictogram.getType());
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
             Drawable drawable = findResource();
-             glideAttatcher.setWidth(icon.getWidth()).setHeight(icon.getHeight()).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
+             glideAttatcher.setWidth(width).setHeight(height).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
         }else{
             selectIcon();
         }
@@ -216,6 +220,20 @@ public class PictoView extends TarjetView{
             default:
                 setCustom_Color(getResources().getColor(R.color.Black));
                 break;
+        }
+    }
+
+    @Override
+    public void setData(int height, int with) {
+        id= pictogramsLibraryPictogram.getId();
+        this.setCustom_Texto(pictogramsLibraryPictogram.getObjectName());
+        this.icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        cargarColor(pictogramsLibraryPictogram.getType());
+        if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
+            Drawable drawable = findResource();
+            glideAttatcher.setWidth(height).setHeight(with).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
+        }else{
+            selectIcon();
         }
     }
 
