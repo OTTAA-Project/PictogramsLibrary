@@ -37,8 +37,8 @@ public class PictoView extends TarjetView{
         try {
             Custom_Texto = a.getString(R.styleable.Custom_Picto_Texto);
             Custom_Color = a.getColor(R.styleable.Custom_Picto_Color, getResources().getColor(R.color.Black));
-            height = a.getInt(R.styleable.Custom_Picto_iconHeight,300);
-            width = a.getInt(R.styleable.Custom_Picto_iconWidth,300);
+            IconHeight = a.getInt(R.styleable.Custom_Picto_IconHeight,100);
+            IconWidth = a.getInt(R.styleable.Custom_Picto_IconWidth,100);
             //            Custom_Imagen = a.getInteger(R.styleable.Custom_Picto_Imagen, 0);
         } finally {
             a.recycle();
@@ -56,8 +56,8 @@ public class PictoView extends TarjetView{
         try {
             Custom_Texto = a.getString(R.styleable.Custom_Picto_Texto);
             Custom_Color = a.getColor(R.styleable.Custom_Picto_Color, getResources().getColor(R.color.Black));
-            height = a.getInt(R.styleable.Custom_Picto_iconHeight,300);
-            width = a.getInt(R.styleable.Custom_Picto_iconWidth,300);
+            IconHeight = a.getInt(R.styleable.Custom_Picto_IconHeight,100);
+            IconWidth = a.getInt(R.styleable.Custom_Picto_IconWidth,100);
 //            Custom_Imagen = a.getInteger(R.styleable.Custom_Picto_Imagen, 0);
         } finally {
             a.recycle();
@@ -162,7 +162,7 @@ public class PictoView extends TarjetView{
         cargarColor(pictogramsLibraryPictogram.getType());
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
             Drawable drawable = findResource();
-             glideAttatcher.setWidth(width).setHeight(height).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
+             glideAttatcher.setWidth(IconWidth).setHeight(IconHeight).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
         }else{
             selectIcon();
         }

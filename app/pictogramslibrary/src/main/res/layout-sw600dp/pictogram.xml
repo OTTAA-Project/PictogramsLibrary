@@ -8,6 +8,7 @@ android:padding="5dp"
 android:background="@drawable/background_shape">
 
 
+
 <ImageView
     android:id="@+id/Imagen_Picto"
     android:layout_width="0dp"
@@ -20,6 +21,7 @@ android:background="@drawable/background_shape">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintVertical_weight="85"
+
     />
 
 <ImageView

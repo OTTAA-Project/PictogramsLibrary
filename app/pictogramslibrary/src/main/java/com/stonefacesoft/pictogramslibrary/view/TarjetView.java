@@ -22,8 +22,8 @@ public class TarjetView extends ConstraintLayout  {
     protected Drawable Custom_Imagen;
     protected GlideAttatcher glideAttatcher;
     protected Context mContext;
-    protected int height;
-    protected int width;
+    protected int IconHeight;
+    protected int IconWidth;
 
     public TarjetView(@NonNull Context context) {
         super(context);
@@ -107,11 +107,11 @@ public class TarjetView extends ConstraintLayout  {
         }
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setIconHeight(int iconHeight) {
+        this.IconHeight = iconHeight;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
+    public void setIconWidth(int iconWidth) {
+        this.IconWidth = iconWidth;
     }
 }

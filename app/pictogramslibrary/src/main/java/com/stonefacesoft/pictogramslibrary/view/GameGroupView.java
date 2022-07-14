@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.stonefacesoft.pictogramslibrary.Classes.GameGroup;
-import com.stonefacesoft.pictogramslibrary.Classes.Group;
 import com.stonefacesoft.pictogramslibrary.R;
 
 import java.io.File;
@@ -37,8 +36,8 @@ public class GameGroupView extends TarjetView{
         try {
             Custom_Texto = a.getString(R.styleable.Custom_Picto_Texto);
             Custom_Color = a.getColor(R.styleable.Custom_Picto_Color, getResources().getColor(R.color.Black));
-            height = a.getInt(R.styleable.Custom_Picto_iconHeight,300);
-            width = a.getInt(R.styleable.Custom_Picto_iconWidth,300);
+            IconHeight = a.getInt(R.styleable.Custom_Picto_IconHeight,300);
+            IconWidth = a.getInt(R.styleable.Custom_Picto_IconWidth,300);
             //    Custom_Imagen = a.getInteger(R.styleable.Custom_Picto_Imagen, 0);
         } finally {
             a.recycle();
@@ -55,8 +54,8 @@ public class GameGroupView extends TarjetView{
         try {
             Custom_Texto = a.getString(R.styleable.Custom_Picto_Texto);
             Custom_Color = a.getColor(R.styleable.Custom_Picto_Color, getResources().getColor(R.color.Black));
-            height = a.getInt(R.styleable.Custom_Picto_iconHeight,300);
-            width = a.getInt(R.styleable.Custom_Picto_iconWidth,300);
+            IconHeight = a.getInt(R.styleable.Custom_Picto_IconHeight,300);
+            IconWidth = a.getInt(R.styleable.Custom_Picto_IconWidth,300);
             //    Custom_Imagen = a.getInteger(R.styleable.Custom_Picto_Imagen, 0);
         } finally {
             a.recycle();
@@ -85,7 +84,7 @@ public class GameGroupView extends TarjetView{
         setCustom_Texto(pictogramsLibraryGameGroup.getObjectName());
         if (pictogramsLibraryGameGroup.getEditedPictogram().isEmpty()) {
             Drawable drawable = findResource();
-            glideAttatcher.setHeight(height).setWidth(width).useDiskCacheStrategy().loadDrawable(drawable, this.icon);
+            glideAttatcher.setHeight(IconHeight).setWidth(IconWidth).useDiskCacheStrategy().loadDrawable(drawable, this.icon);
         } else {
             selectIcon();
         }
