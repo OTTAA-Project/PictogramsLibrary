@@ -163,6 +163,10 @@ public class PictoView extends TarjetView{
         cargarColor(pictogramsLibraryPictogram.getType());
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
             Drawable drawable = findResource();
+            float drawableSize = drawable.getIntrinsicHeight()*drawable.getIntrinsicWidth()*BYTES_PER_PX/MemoryUtils.BYTES_MB;
+            if(MemoryUtils.freeMegabytes()<drawableSize*2){
+                System.gc();
+            }
             glideAttatcher.setWidth(IconWidth).setHeight(IconHeight).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
         }else{
             selectIcon();
@@ -229,10 +233,6 @@ public class PictoView extends TarjetView{
         cargarColor(pictogramsLibraryPictogram.getType());
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
             Drawable drawable = findResource();
-            float drawableSize = drawable.getIntrinsicHeight()*drawable.getIntrinsicWidth()*BYTES_PER_PX/MemoryUtils.BYTES_MB;
-            if(MemoryUtils.freeMegabytes()<drawableSize*2){
-                Runtime.getRuntime().gc();
-            }
             glideAttatcher.setWidth(height).setHeight(with).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
         }else{
             selectIcon();
