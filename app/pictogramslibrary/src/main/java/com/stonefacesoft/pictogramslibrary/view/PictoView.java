@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.stonefacesoft.pictogramslibrary.Classes.Pictogram;
 import com.stonefacesoft.pictogramslibrary.R;
+import com.stonefacesoft.pictogramslibrary.utils.MemoryUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -162,7 +163,7 @@ public class PictoView extends TarjetView{
         cargarColor(pictogramsLibraryPictogram.getType());
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
             Drawable drawable = findResource();
-             glideAttatcher.setWidth(IconWidth).setHeight(IconHeight).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
+            glideAttatcher.setWidth(IconWidth).setHeight(IconHeight).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
         }else{
             selectIcon();
         }
@@ -170,15 +171,12 @@ public class PictoView extends TarjetView{
 
     @Override
     protected Drawable findResource() {
-        Drawable drawable = null;
+        Drawable drawable = mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
         try{
             drawable = mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryPictogram.getPictogram(),"drawable",mContext.getPackageName()));
         }catch (Exception ex){
         }
-        if(drawable != null)
-            return drawable;
-        else
-            return mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
+        return drawable;
     }
 
 
@@ -231,6 +229,10 @@ public class PictoView extends TarjetView{
         cargarColor(pictogramsLibraryPictogram.getType());
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
             Drawable drawable = findResource();
+            float drawableSize = drawable.getIntrinsicHeight()*drawable.getIntrinsicWidth()*BYTES_PER_PX/MemoryUtils.BYTES_MB;
+            if(MemoryUtils.freeMegabytes()<drawableSize*2){
+                Runtime.getRuntime().gc();
+            }
             glideAttatcher.setWidth(height).setHeight(with).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
         }else{
             selectIcon();

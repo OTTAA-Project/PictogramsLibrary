@@ -24,6 +24,8 @@ public class TarjetView extends ConstraintLayout  {
     protected Context mContext;
     protected int IconHeight;
     protected int IconWidth;
+    protected static final float BYTES_PER_PX = 4.0f; //32 bit
+
 
     public TarjetView(@NonNull Context context) {
         super(context);
@@ -114,4 +116,6 @@ public class TarjetView extends ConstraintLayout  {
     public void setIconWidth(int iconWidth) {
         this.IconWidth = iconWidth;
     }
+
+
 }
