@@ -30,7 +30,7 @@ public class JSONObjectManager {
         try {
             object.put(name,value);
         } catch (JSONException e) {
-            Log.e(className, "JsonObjectloadString: "+ e.getMessage() );
+            Log.d(className, "JsonObjectloadString: "+ e.getMessage() );
         }
     }
     /**
@@ -41,7 +41,7 @@ public class JSONObjectManager {
         try {
             object.put(name,value);
         } catch (JSONException e) {
-            Log.e(className, "JsonObjectloadString: "+ e.getMessage() );
+            Log.d(className, "JsonObjectloadString: "+ e.getMessage() );
         }
     }
     /**
@@ -51,7 +51,7 @@ public class JSONObjectManager {
         try {
             object.put(name,value);
         } catch (JSONException e) {
-            Log.e(className, "JsonObjectloadString: "+ e.getMessage() );
+            Log.d(className, "JsonObjectloadString: "+ e.getMessage() );
         }
     }
     /**
@@ -61,7 +61,7 @@ public class JSONObjectManager {
         try {
             object.put(name,value);
         } catch (JSONException e) {
-            Log.e(className, "JsonObjectloadString: "+ e.getMessage() );
+            Log.d(className, "JsonObjectloadString: "+ e.getMessage() );
         }
     }
 
@@ -73,7 +73,7 @@ public class JSONObjectManager {
         try {
           return  object.getJSONObject(name);
         } catch (JSONException e) {
-            Log.e(className, "JsonObjectloadString: "+ e.getMessage() );
+            Log.d(className, "JsonObjectloadString: "+ e.getMessage() );
         }
         return createJsonObject();
     }
@@ -84,7 +84,7 @@ public class JSONObjectManager {
         try {
            return object.getString(value);
         } catch (JSONException e) {
-            Log.e(className, "JsonObjectGetString: "+e.getMessage() );
+            Log.d(className, "JsonObjectGetString: "+e.getMessage() );
         }
         return "";
     }
@@ -95,7 +95,7 @@ public class JSONObjectManager {
         try {
           return   object.getJSONObject(value);
         } catch (JSONException e) {
-            Log.e(className, "JsonObjectGetJSONObject: "+ e.getMessage() );
+            Log.d(className, "JsonObjectGetJSONObject: "+ e.getMessage() );
         }
         return null;
     }
@@ -106,7 +106,7 @@ public class JSONObjectManager {
         try {
             return object.getInt(value);
         } catch (JSONException e) {
-            Log.e(className, "JsonObjectGetString: "+e.getMessage() );
+            Log.d(className, "JsonObjectGetString: "+e.getMessage() );
         }
         return -1;
     }
@@ -118,7 +118,7 @@ public class JSONObjectManager {
         try {
             return object.getJSONArray(name);
         } catch (JSONException e) {
-            Log.e(className, "JsonObjectloadString: "+ e.getMessage() );
+            Log.d(className, "JsonObjectloadString: "+ e.getMessage() );
         }
         return createJsonArray();
     }
