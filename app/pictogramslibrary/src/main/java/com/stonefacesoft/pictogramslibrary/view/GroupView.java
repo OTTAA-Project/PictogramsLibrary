@@ -106,15 +106,12 @@ public class GroupView extends TarjetView {
 
     @Override
     protected Drawable findResource() {
-        Drawable drawable = null;
+        Drawable drawable = mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
         try{
             drawable = mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),"drawable",mContext.getPackageName()));
         }catch (Exception ex){
         }
-        if(drawable !=  null)
-            return drawable;
-        else
-            return mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
+        return drawable;
     }
 
     public void loadHourIcon(boolean value) {

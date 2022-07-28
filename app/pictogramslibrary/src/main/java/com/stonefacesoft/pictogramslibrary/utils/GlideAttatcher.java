@@ -34,7 +34,7 @@ public class GlideAttatcher implements GlideModelTypes {
     private int scaleType=0;
     private boolean useDiskCacheStrategy;
     private boolean useCornerRadious;
-    private boolean useDecodeFormat;
+    private boolean useDecodeFormat =  true;
 
 
 
@@ -263,12 +263,7 @@ public class GlideAttatcher implements GlideModelTypes {
         }
     }
 
-
-
-
-
-
-
-
-
+    public void setUseDecodeFormat(boolean useDecodeFormat) {
+        this.useDecodeFormat = useDecodeFormat;
+    }
 }
