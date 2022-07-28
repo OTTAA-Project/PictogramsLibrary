@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.stonefacesoft.pictogramslibrary.Classes.Pictogram;
 import com.stonefacesoft.pictogramslibrary.R;
+import com.stonefacesoft.pictogramslibrary.utils.GlideAttatcher;
 import com.stonefacesoft.pictogramslibrary.utils.MemoryUtils;
 
 import androidx.annotation.NonNull;
@@ -152,6 +153,14 @@ public class PictoView extends TarjetView{
         this.pictogramsLibraryPictogram = grupo;
         setData();
     }
+
+    public void setPictogramsLibraryPictogram(Pictogram pictogram, GlideAttatcher glideAttatcher){
+        this.pictogramsLibraryPictogram = pictogram;
+        this.glideAttatcher = glideAttatcher;
+        setData();
+    }
+
+
     public ImageView getImageView(){
         return icon;
     }
