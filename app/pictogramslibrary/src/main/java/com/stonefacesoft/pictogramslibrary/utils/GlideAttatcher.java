@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.util.Log;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,8 @@ import java.io.File;
 import java.net.URL;
 
 import static com.stonefacesoft.pictogramslibrary.utils.ValidateContext.isValidContext;
+
+import javax.security.auth.login.LoginException;
 
 public class GlideAttatcher implements GlideModelTypes {
     private  Glide glide;
@@ -260,6 +263,15 @@ public class GlideAttatcher implements GlideModelTypes {
             }catch (Exception ex){
 
             }
+        }
+    }
+
+    public void forceClearMemory(){
+        try{
+        if(glide!=null)
+            glide.clearMemory();
+        }catch (Exception ex){
+            Log.e(this.getClass().getName(), "forceClearMemory: ",ex.getCause() );
         }
     }
 
