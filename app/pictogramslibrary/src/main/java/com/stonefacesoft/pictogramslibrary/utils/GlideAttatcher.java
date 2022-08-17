@@ -223,7 +223,7 @@ public class GlideAttatcher implements GlideModelTypes {
     }
 
     public RequestBuilder<Drawable> overrideMethod(RequestBuilder<Drawable> drawableRequestBuilder){
-        return drawableRequestBuilder.override(height);
+        return drawableRequestBuilder;
     }
 
     public RequestBuilder<Drawable> cornerRadious(RequestBuilder<Drawable> drawableRequestBuilder) {
