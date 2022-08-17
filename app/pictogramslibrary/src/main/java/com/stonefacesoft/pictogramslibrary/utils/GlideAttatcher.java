@@ -37,7 +37,7 @@ public class GlideAttatcher implements GlideModelTypes {
     private int scaleType=0;
     private boolean useDiskCacheStrategy;
     private boolean useCornerRadious;
-    private boolean useDecodeFormat =  true;
+    private boolean useDecodeFormat =  false;
 
 
 
@@ -223,7 +223,7 @@ public class GlideAttatcher implements GlideModelTypes {
     }
 
     public RequestBuilder<Drawable> overrideMethod(RequestBuilder<Drawable> drawableRequestBuilder){
-        return drawableRequestBuilder.override(height,width);
+        return drawableRequestBuilder.override(height);
     }
 
     public RequestBuilder<Drawable> cornerRadious(RequestBuilder<Drawable> drawableRequestBuilder) {
@@ -272,7 +272,8 @@ public class GlideAttatcher implements GlideModelTypes {
         }
     }
 
-    public void setUseDecodeFormat(boolean useDecodeFormat) {
+    public GlideAttatcher setUseDecodeFormat(boolean useDecodeFormat) {
         this.useDecodeFormat = useDecodeFormat;
+        return this;
     }
 }
