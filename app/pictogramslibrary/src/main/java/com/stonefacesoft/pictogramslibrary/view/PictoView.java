@@ -230,19 +230,6 @@ public class PictoView extends TarjetView{
         }
     }
 
-    @Override
-    public void setData(int height, int with) {
-        id= pictogramsLibraryPictogram.getId();
-        this.setCustom_Texto(pictogramsLibraryPictogram.getObjectName());
-        this.icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        cargarColor(pictogramsLibraryPictogram.getType());
-        if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
-            Drawable drawable = findResource();
-            glideAttatcher.setWidth(height).setHeight(with).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
-        }else{
-            selectIcon();
-        }
-    }
 
     public Pictogram getPictogram() {
         return pictogramsLibraryPictogram;
