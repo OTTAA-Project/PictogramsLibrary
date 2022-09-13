@@ -171,7 +171,7 @@ public class PictoView extends TarjetView{
         this.icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         cargarColor(pictogramsLibraryPictogram.getType());
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
-            if(!pictogramsLibraryPictogram.getEditedPictogram().startsWith("https://")){
+            if(!pictogramsLibraryPictogram.getPictogram().startsWith("https://")){
                 Drawable drawable = findResource();
                 glideAttatcher.setWidth(IconWidth).setHeight(IconHeight).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
             }else{
