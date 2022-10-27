@@ -19,6 +19,10 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.signature.ObjectKey;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.stonefacesoft.pictogramslibrary.CloudStorageManager;
 import com.stonefacesoft.pictogramslibrary.Interfaces.GlideModelTypes;
 import com.stonefacesoft.pictogramslibrary.R;
 
@@ -142,8 +146,31 @@ public class GlideAttatcher implements GlideModelTypes {
     @NonNull
     @Override
     public Object loadDrawable(@Nullable Uri uri, ImageView imageView) {
-        if(isValidContext(mContext))
-            glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uri).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
+
+        if(isValidContext(mContext)){
+            if(uri.toString().contains("firebasestorage")){
+                String aux = uri.toString();
+                if(aux.contains("?alt")){
+                    aux = aux.substring(0,aux.lastIndexOf("?alt"));
+                }
+                if(CloudStorageManager.getInstance().getStorage()!=null){
+                    StorageReference mRef = CloudStorageManager.getInstance().getStorage().getReferenceFromUrl(aux);
+                    mRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uriResult) {
+                            glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uriResult).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
+                        }
+                    });
+                }else{
+                    glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uri).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
+                }
+
+
+            }
+            else{
+                glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uri).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
+            }
+        }
         return this;
     }
 
@@ -165,9 +192,30 @@ public class GlideAttatcher implements GlideModelTypes {
 
     @Override
     public Object loadDrawable(@Nullable URL url, ImageView imageView) {
-        if(isValidContext(mContext))
-            glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(url).signature(new ObjectKey(url)).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
-        return this;
+        if(isValidContext(mContext)){
+            if(url.toString().contains("firebasestorage")){
+                String aux = url.toString();
+                if(aux.contains("?alt")){
+                    aux = aux.substring(0,aux.lastIndexOf("?alt"));
+                }
+                if(CloudStorageManager.getInstance().getStorage()!=null){
+                    StorageReference mRef = CloudStorageManager.getInstance().getStorage().getReferenceFromUrl(aux);
+                    mRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uriResult) {
+                            glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uriResult).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
+                        }
+                    });
+                }else{
+                    glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(url).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
+                }
+
+
+            }
+            else{
+                glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(url).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
+            }
+        }    return this;
     }
 
     @NonNull
