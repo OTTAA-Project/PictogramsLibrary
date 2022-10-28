@@ -141,8 +141,14 @@ public class GroupView extends TarjetView {
     @Override
     public void selectIcon() {
         File picto = new File(pictogramsLibraryGroup.getEditedPictogram());
+        File picto2 = picto;
+        if(!pictogramsLibraryGroup.getEditedPictogram().contains(".debug"))
+            picto2 = new File(pictogramsLibraryGroup.getEditedPictogram().replace("com.stonefacesoft.ottaa","com.stonefacesoft.ottaa.debug"));
         if (picto.exists())
             glideAttatcher.useDiskCacheStrategy().UseCornerRadius(true).setRadius(25).loadDrawable(picto, this.icon);
+        else if(picto2.exists()){
+            glideAttatcher.useDiskCacheStrategy().UseCornerRadius(true).setRadius(25).loadDrawable(picto2, this.icon);
+        }
         else
             glideAttatcher.useDiskCacheStrategy().UseCornerRadius(true).setRadius(25).loadDrawable(Uri.parse(pictogramsLibraryGroup.getUrl()), this.icon);
     }

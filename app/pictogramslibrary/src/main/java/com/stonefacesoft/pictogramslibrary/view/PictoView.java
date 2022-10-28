@@ -81,9 +81,7 @@ public class PictoView extends TarjetView{
     public void setCustom_Color(Integer color) {
         this.Custom_Color = color;
         //Img.setBackgroundColor(color);
-
         Color.setColorFilter(color);
-
         invalidate();
         requestLayout();
     }
@@ -197,8 +195,13 @@ public class PictoView extends TarjetView{
     public void selectIcon(){
         try{
             File picto=new File(pictogramsLibraryPictogram.getEditedPictogram());
+            File picto2= picto;
+            if(!pictogramsLibraryPictogram.getEditedPictogram().contains(".debug"))
+             picto2 =new File(pictogramsLibraryPictogram.getEditedPictogram().replace("com.stonefacesoft.ottaa","com.stonefacesoft.ottaa.debug"));
             if(picto.exists())
                 glideAttatcher.useDiskCacheStrategy().loadDrawable(picto,this.icon);
+            else if(picto2.exists())
+                glideAttatcher.useDiskCacheStrategy().loadDrawable(picto2,this.icon);
             else
                 glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
         }catch (Exception ex){
