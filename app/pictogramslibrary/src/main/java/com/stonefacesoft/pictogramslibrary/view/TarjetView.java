@@ -16,6 +16,7 @@ import com.stonefacesoft.pictogramslibrary.R;
 import com.stonefacesoft.pictogramslibrary.utils.GlideAttatcher;
 
 import java.io.File;
+import java.io.IOException;
 
 public class TarjetView extends ConstraintLayout  {
     protected TextView StrTittle;
@@ -78,18 +79,13 @@ public class TarjetView extends ConstraintLayout  {
 
     }
 
-    public void selectIcon(OTTAAProjectObjects object) {
-        try{
-            String path  = object.getEditedPictogram();
-            File picture=new File(path);
-            if(picture.exists())
-                glideAttatcher.useDiskCacheStrategy().loadDrawable(object,this.icon);
-            else
-                glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(object.getUrl()),this.icon);
-        }catch (Exception ex){
-            Drawable aux = mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
-            glideAttatcher.useDiskCacheStrategy().loadDrawable(aux,this.icon);
-        }
+    protected void selectIcon(OTTAAProjectObjects object) {
+      String path  = object.getEditedPictogram();
+      File picture=new File(path);
+      if(picture.exists())
+          glideAttatcher.useDiskCacheStrategy().loadDrawable(object,this.icon);
+      else
+          glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(object.getUrl()),this.icon);
     }
 
     public void setGlideAttatcher(GlideAttatcher glideAttatcher) {
