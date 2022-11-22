@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.stonefacesoft.pictogramslibrary.Classes.Group;
+import com.stonefacesoft.pictogramslibrary.Classes.OTTAAProjectObjects;
 import com.stonefacesoft.pictogramslibrary.R;
 
 import java.io.File;
@@ -97,22 +98,14 @@ public class GroupView extends TarjetView {
         id = pictogramsLibraryGroup.getId();
         this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
         if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {
-            Drawable drawable = findResource();
+            Drawable drawable = findResource(pictogramsLibraryGroup.getPictogram());
             glideAttatcher.setHeight(IconHeight).setWidth(IconWidth).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(drawable, this.icon);
         } else {
-            selectIcon();
+            selectIcon(pictogramsLibraryGroup);
          }
     }
 
-    @Override
-    protected Drawable findResource() {
-        Drawable drawable = mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
-        try{
-            drawable = mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryGroup.getPictogram(),"drawable",mContext.getPackageName()));
-        }catch (Exception ex){
-        }
-        return drawable;
-    }
+
 
     public void loadHourIcon(boolean value) {
         tagHora.setImageResource(value ? R.drawable.ic_timer_black_24dp : R.drawable.ic_timer_off_black_24dp);
@@ -138,29 +131,19 @@ public class GroupView extends TarjetView {
         requestLayout();
     }
 
-    @Override
-    public void selectIcon() {
-        File picto = new File(pictogramsLibraryGroup.getEditedPictogram());
-        File picto2 = picto;
-        if(!pictogramsLibraryGroup.getEditedPictogram().contains(".debug"))
-            picto2 = new File(pictogramsLibraryGroup.getEditedPictogram().replace("com.stonefacesoft.ottaa","com.stonefacesoft.ottaa.debug"));
-        if (picto.exists())
-            glideAttatcher.useDiskCacheStrategy().UseCornerRadius(true).setRadius(25).loadDrawable(picto, this.icon);
-        else if(picto2.exists()){
-            glideAttatcher.useDiskCacheStrategy().UseCornerRadius(true).setRadius(25).loadDrawable(picto2, this.icon);
-        }
-        else
-            glideAttatcher.useDiskCacheStrategy().UseCornerRadius(true).setRadius(25).loadDrawable(Uri.parse(pictogramsLibraryGroup.getUrl()), this.icon);
-    }
+
 
     @Override
     public void setData(int height, int with) {
         id = pictogramsLibraryGroup.getId();
         this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
         if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {
-            Drawable drawable = findResource();
+            Drawable drawable = findResource(pictogramsLibraryGroup.getPictogram());
             glideAttatcher.setHeight(height).setWidth(with).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(drawable, this.icon);
         } else {
-            selectIcon();
-        }    }
+            selectIcon(pictogramsLibraryGroup);
+        }
+    }
+
+
 }

@@ -2,6 +2,7 @@ package com.stonefacesoft.pictogramslibrary.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,7 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.stonefacesoft.pictogramslibrary.Classes.OTTAAProjectObjects;
+import com.stonefacesoft.pictogramslibrary.R;
 import com.stonefacesoft.pictogramslibrary.utils.GlideAttatcher;
+
+import java.io.File;
 
 public class TarjetView extends ConstraintLayout  {
     protected TextView StrTittle;
@@ -73,6 +78,20 @@ public class TarjetView extends ConstraintLayout  {
 
     }
 
+    public void selectIcon(OTTAAProjectObjects object) {
+        try{
+            String path  = object.getEditedPictogram();
+            File picture=new File(path);
+            if(picture.exists())
+                glideAttatcher.useDiskCacheStrategy().loadDrawable(object,this.icon);
+            else
+                glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(object.getUrl()),this.icon);
+        }catch (Exception ex){
+            Drawable aux = mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
+            glideAttatcher.useDiskCacheStrategy().loadDrawable(aux,this.icon);
+        }
+    }
+
     public void setGlideAttatcher(GlideAttatcher glideAttatcher) {
         this.glideAttatcher = glideAttatcher;
     }
@@ -88,6 +107,16 @@ public class TarjetView extends ConstraintLayout  {
         return null;
     }
 
+    protected Drawable findResource(String name) {
+        Drawable drawable = null;
+        Drawable aux = mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
+        try{
+            drawable = mContext.getResources().getDrawable(mContext.getResources().getIdentifier(name,"drawable",mContext.getPackageName()));
+        }catch (Exception ex){
+            drawable = aux;
+        }
+        return drawable;
+    }
     protected  void setData(){
 
     }

@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.stonefacesoft.pictogramslibrary.Classes.GameGroup;
+import com.stonefacesoft.pictogramslibrary.Classes.OTTAAProjectObjects;
 import com.stonefacesoft.pictogramslibrary.R;
 
 import java.io.File;
@@ -83,10 +84,10 @@ public class GameGroupView extends TarjetView{
         id = pictogramsLibraryGameGroup.getId();
         setCustom_Texto(pictogramsLibraryGameGroup.getObjectName());
         if (pictogramsLibraryGameGroup.getEditedPictogram().isEmpty()) {
-            Drawable drawable = findResource();
+            Drawable drawable = findResource(pictogramsLibraryGameGroup.getPictogram());
             glideAttatcher.setHeight(IconHeight).setWidth(IconWidth).useDiskCacheStrategy().loadDrawable(drawable, this.icon);
         } else {
-            selectIcon();
+            selectIcon(pictogramsLibraryGameGroup);
         }
     }
 
@@ -123,24 +124,20 @@ public class GameGroupView extends TarjetView{
         this.tagScore.setImageDrawable(drawable);
     }
 
-    @Override
-    public void selectIcon() {
-        File picto = new File(pictogramsLibraryGameGroup.getEditedPictogram());
-        if (picto.exists())
-            glideAttatcher.useDiskCacheStrategy().loadDrawable(picto, this.icon);
-        else
-            glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryGameGroup.getUrl()), this.icon);
-    }
+
 
     @Override
     public void setData(int height, int with) {
         id = pictogramsLibraryGameGroup.getId();
         setCustom_Texto(pictogramsLibraryGameGroup.getObjectName());
         if (pictogramsLibraryGameGroup.getEditedPictogram().isEmpty()) {
-            Drawable drawable = findResource();
+            Drawable drawable = findResource(pictogramsLibraryGameGroup.getPictogram());
             glideAttatcher.setHeight(height).setWidth(with).useDiskCacheStrategy().loadDrawable(drawable, this.icon);
         } else {
-            selectIcon();
+            selectIcon(pictogramsLibraryGameGroup);
         }
      }
+
+
+
 }

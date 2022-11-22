@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import com.stonefacesoft.pictogramslibrary.Classes.OTTAAProjectObjects;
 import com.stonefacesoft.pictogramslibrary.Classes.Pictogram;
 import com.stonefacesoft.pictogramslibrary.R;
 import com.stonefacesoft.pictogramslibrary.utils.GlideAttatcher;
@@ -170,45 +171,36 @@ public class PictoView extends TarjetView{
         cargarColor(pictogramsLibraryPictogram.getType());
         if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
             if(!pictogramsLibraryPictogram.getPictogram().startsWith("https://")){
-                Drawable drawable = findResource();
+                Drawable drawable = findResource(pictogramsLibraryPictogram.getPictogram());
                 glideAttatcher.setWidth(IconWidth).setHeight(IconHeight).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
             }else{
                 glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getPictogram()),this.icon);
             }
         }else{
-            selectIcon();
+            selectIcon(pictogramsLibraryPictogram);
         }
     }
 
-    @Override
-    protected Drawable findResource() {
-        Drawable drawable = mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
-        try{
-            drawable = mContext.getResources().getDrawable(mContext.getResources().getIdentifier(pictogramsLibraryPictogram.getPictogram(),"drawable",mContext.getPackageName()));
-        }catch (Exception ex){
-        }
-        return drawable;
-    }
+
+
+
+
 
 
     @Override
     public void selectIcon(){
         try{
-            File picto=new File(pictogramsLibraryPictogram.getEditedPictogram());
-            File picto2= picto;
-            if(!pictogramsLibraryPictogram.getEditedPictogram().contains(".debug"))
-             picto2 =new File(pictogramsLibraryPictogram.getEditedPictogram().replace("com.stonefacesoft.ottaa","com.stonefacesoft.ottaa.debug"));
+            String path  = pictogramsLibraryPictogram.getEditedPictogram();
+            File picto=new File(path);
             if(picto.exists())
                 glideAttatcher.useDiskCacheStrategy().loadDrawable(picto,this.icon);
-            else if(picto2.exists())
-                glideAttatcher.useDiskCacheStrategy().loadDrawable(picto2,this.icon);
             else
                 glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
         }catch (Exception ex){
+
             glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
         }
     }
-
 
 
     private void cargarColor(int color) {

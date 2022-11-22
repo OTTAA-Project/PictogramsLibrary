@@ -209,8 +209,6 @@ public class GlideAttatcher implements GlideModelTypes {
                 }else{
                     glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(url).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
                 }
-
-
             }
             else{
                 glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(url).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
