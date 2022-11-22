@@ -79,7 +79,7 @@ public class TarjetView extends ConstraintLayout  {
 
     }
 
-    protected void selectIcon(OTTAAProjectObjects object) {
+    protected void selectIcon(final OTTAAProjectObjects object,GlideAttatcher glideAttatcher) {
       String path  = object.getEditedPictogram();
       File picture=new File(path);
       if(picture.exists())
@@ -103,9 +103,9 @@ public class TarjetView extends ConstraintLayout  {
         return null;
     }
 
-    protected Drawable findResource(String name) {
-        Drawable drawable = null;
+    protected Drawable findResource( final String name) {
         Drawable aux = mContext.getResources().getDrawable(R.drawable.ic_baseline_cloud_download_24);
+        Drawable drawable = aux;
         try{
             drawable = mContext.getResources().getDrawable(mContext.getResources().getIdentifier(name,"drawable",mContext.getPackageName()));
         }catch (Exception ex){
