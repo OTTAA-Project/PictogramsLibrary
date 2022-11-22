@@ -79,13 +79,13 @@ public class TarjetView extends ConstraintLayout  {
 
     }
 
-    protected void selectIcon(final OTTAAProjectObjects object,GlideAttatcher glideAttatcher) {
+    protected void selectIcon(final OTTAAProjectObjects object,ImageView icon) {
       String path  = object.getEditedPictogram();
       File picture=new File(path);
       if(picture.exists())
-          glideAttatcher.useDiskCacheStrategy().loadDrawable(object,this.icon);
+          glideAttatcher.useDiskCacheStrategy().loadDrawable(object,icon);
       else
-          glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(object.getUrl()),this.icon);
+          glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(object.getUrl()),icon);
     }
 
     public void setGlideAttatcher(GlideAttatcher glideAttatcher) {

@@ -177,7 +177,7 @@ public class PictoView extends TarjetView{
                 glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getPictogram()),this.icon);
             }
         }else{
-            selectIcon(pictogramsLibraryPictogram,glideAttatcher);
+            selectIcon(pictogramsLibraryPictogram,this.icon);
         }
     }
 
