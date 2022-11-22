@@ -101,7 +101,7 @@ public class GroupView extends TarjetView {
             Drawable drawable = findResource(pictogramsLibraryGroup.getPictogram());
             glideAttatcher.setHeight(IconHeight).setWidth(IconWidth).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(drawable, this.icon);
         } else {
-            selectIcon(pictogramsLibraryGroup,this.icon);
+            selectIcon(pictogramsLibraryGroup,this.icon,glideAttatcher);
          }
     }
 
@@ -141,7 +141,7 @@ public class GroupView extends TarjetView {
             Drawable drawable = findResource(pictogramsLibraryGroup.getPictogram());
             glideAttatcher.setHeight(height).setWidth(with).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(drawable, this.icon);
         } else {
-            selectIcon(pictogramsLibraryGroup,this.icon);
+            selectIcon(pictogramsLibraryGroup,this.icon,glideAttatcher);
         }
     }
 

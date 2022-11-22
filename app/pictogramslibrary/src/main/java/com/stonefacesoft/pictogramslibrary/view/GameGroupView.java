@@ -87,7 +87,7 @@ public class GameGroupView extends TarjetView{
             Drawable drawable = findResource(pictogramsLibraryGameGroup.getPictogram());
             glideAttatcher.setHeight(IconHeight).setWidth(IconWidth).useDiskCacheStrategy().loadDrawable(drawable, this.icon);
         } else {
-            selectIcon(pictogramsLibraryGameGroup, this.icon);
+            selectIcon(pictogramsLibraryGameGroup, this.icon,glideAttatcher);
         }
     }
 
@@ -134,7 +134,7 @@ public class GameGroupView extends TarjetView{
             Drawable drawable = findResource(pictogramsLibraryGameGroup.getPictogram());
             glideAttatcher.setHeight(height).setWidth(with).useDiskCacheStrategy().loadDrawable(drawable, this.icon);
         } else {
-            selectIcon(pictogramsLibraryGameGroup, this.icon);
+            selectIcon(pictogramsLibraryGameGroup, this.icon,glideAttatcher);
         }
      }
 

@@ -79,7 +79,7 @@ public class TarjetView extends ConstraintLayout  {
 
     }
 
-    protected void selectIcon(final OTTAAProjectObjects object,ImageView icon) {
+    protected void selectIcon(final OTTAAProjectObjects object,ImageView icon,GlideAttatcher glideAttatcher) {
       String path  = object.getEditedPictogram();
       File picture=new File(path);
       if(picture.exists())
