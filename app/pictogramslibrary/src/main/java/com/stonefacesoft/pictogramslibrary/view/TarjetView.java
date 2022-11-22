@@ -83,7 +83,7 @@ public class TarjetView extends ConstraintLayout  {
       String path  = object.getEditedPictogram();
       File picture=new File(path);
       if(picture.exists())
-          glideAttatcher.useDiskCacheStrategy().loadDrawable(object,icon);
+          glideAttatcher.useDiskCacheStrategy().loadDrawable(picture,icon);
       else
           glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(object.getUrl()),icon);
     }
