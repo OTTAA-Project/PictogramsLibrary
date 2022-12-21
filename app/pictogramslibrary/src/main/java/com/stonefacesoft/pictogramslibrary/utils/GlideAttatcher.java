@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -151,18 +152,22 @@ public class GlideAttatcher implements GlideModelTypes {
     public Object loadDrawable(@Nullable Uri uri, ImageView imageView) {
 
         if(isValidContext(mContext)){
-            glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uri).addListener(new RequestListener<Drawable>() {
-                @Override
-                public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                    loadOnlineMode(uri+"",imageView);
-                    return false;
-                }
+            if(Build.VERSION.SDK_INT<= Build.VERSION_CODES.M){
+                glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uri)))))).error(R.drawable.ic_baseline_cloud_download_24).into(imageView).waitForLayout();
+            }else{
+                glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(uri).addListener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                            loadOnlineMode(uri+"",imageView);
+                        return false;
+                    }
 
-                @Override
-                public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                    return false;
-                }
-            }).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        return false;
+                    }
+                }).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
+            }
         }
         return this;
     }
@@ -186,18 +191,23 @@ public class GlideAttatcher implements GlideModelTypes {
     @Override
     public Object loadDrawable(@Nullable URL url, ImageView imageView) {
         if(isValidContext(mContext)){
-            glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(url).addListener(new RequestListener<Drawable>() {
-                @Override
-                public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                    loadOnlineMode(url+"",imageView);
-                    return false;
-                }
+            if(Build.VERSION.SDK_INT<= Build.VERSION_CODES.M){
+                glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(url)))))).error(R.drawable.ic_baseline_cloud_download_24).into(imageView).waitForLayout();
+            }else{
+                glideScaleItem(overrideMethod(cornerRadious(useDecodeFormat(useDiskCacheStrategic(getGlide().getRequestManagerRetriever().get(mContext).load(url).addListener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                        if(Build.VERSION.SDK_INT<=Build.VERSION_CODES.M)
+                            loadOnlineMode(url+"",imageView);
+                        return false;
+                    }
 
-                @Override
-                public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                    return false;
-                }
-            }).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        return false;
+                    }
+                }).error(R.drawable.ic_baseline_cloud_download_24)))))).into(imageView).waitForLayout();
+            }
 
         }    return this;
     }
