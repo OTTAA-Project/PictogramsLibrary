@@ -3,6 +3,7 @@
     package="com.stonefacesoft.pictogramslibrary">
 <application
     android:largeHeap="true"
+
     />
 
 
