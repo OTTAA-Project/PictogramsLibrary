@@ -12,6 +12,7 @@ import com.stonefacesoft.pictogramslibrary.Classes.Pictogram;
 import com.stonefacesoft.pictogramslibrary.R;
 import com.stonefacesoft.pictogramslibrary.utils.GlideAttatcher;
 import com.stonefacesoft.pictogramslibrary.utils.MemoryUtils;
+import com.stonefacesoft.pictogramslibrary.utils.ValidateContext;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -169,15 +170,17 @@ public class PictoView extends TarjetView{
         this.setCustom_Texto(pictogramsLibraryPictogram.getObjectName());
         this.icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
         cargarColor(pictogramsLibraryPictogram.getType());
-        if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
-            if(!pictogramsLibraryPictogram.getPictogram().startsWith("https://")){
-                Drawable drawable = findResource(pictogramsLibraryPictogram.getPictogram());
-                glideAttatcher.setWidth(IconWidth).setHeight(IconHeight).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
+        if(ValidateContext.isValidContext(mContext)){
+            if(pictogramsLibraryPictogram.getEditedPictogram().isEmpty()){
+                if(!pictogramsLibraryPictogram.getPictogram().startsWith("https://")){
+                    Drawable drawable = findResource(pictogramsLibraryPictogram.getPictogram());
+                    glideAttatcher.setWidth(IconWidth).setHeight(IconHeight).useDiskCacheStrategy().loadDrawable(drawable,this.icon);
+                }else{
+                    glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getPictogram()),this.icon);
+                }
             }else{
-                glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getPictogram()),this.icon);
+                selectIcon(pictogramsLibraryPictogram,this.icon,glideAttatcher);
             }
-        }else{
-            selectIcon(pictogramsLibraryPictogram,this.icon,glideAttatcher);
         }
     }
 
@@ -192,13 +195,15 @@ public class PictoView extends TarjetView{
         try{
             String path  = pictogramsLibraryPictogram.getEditedPictogram();
             File picto=new File(path);
-            if(picto.exists())
-                glideAttatcher.useDiskCacheStrategy().loadDrawable(picto,this.icon);
-            else
-                glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
+            if(ValidateContext.isValidContext(mContext)) {
+                if (picto.exists())
+                    glideAttatcher.useDiskCacheStrategy().loadDrawable(picto, this.icon);
+                else
+                    glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()), this.icon);
+            }
         }catch (Exception ex){
-
-            glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
+            if(ValidateContext.isValidContext(mContext))
+                glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(pictogramsLibraryPictogram.getUrl()),this.icon);
         }
     }
 
