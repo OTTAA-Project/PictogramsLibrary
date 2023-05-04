@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@drawable/background_shape"
     >
-<androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="0dp"
     android:layout_height="0dp"
     app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +18,7 @@
         android:id="@+id/grid_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerInside"
         android:layout_margin="@dimen/interpicto_margin"
         android:src="@drawable/ic_agregar_nuevo"
         app:layout_constraintBottom_toTopOf="@id/grid_text"
@@ -53,29 +53,6 @@
         app:layout_constraintStart_toStartOf="parent"
         />
 
-    <!--  <ProgressBar
-          android:id="@+id/progressBar"
-          android:layout_width="100dp"
-          android:layout_height="100dp"
-          android:visibility="gone"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintVertical_weight="70"
-          app:layout_constraintBottom_toTopOf="@id/grid_text"
-          tools:layout_editor_absoluteX="122dp"
-          tools:layout_editor_absoluteY="1dp" />-->
-
-    <!--<ImageView-->
-    <!--app:layout_constraintStart_toStartOf="parent"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:layout_constraintTop_toTopOf="parent"-->
-    <!--app:layout_constraintBottom_toTopOf="@id/grid_text"-->
-    <!--android:id="@+id/color_Picto"-->
-    <!--app:layout_constraintVertical_weight="85"-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="0dp"-->
-    <!--android:src="@drawable/fizgerald_shape"/>-->
 
     <TextView
         android:id="@+id/grid_text"
@@ -152,5 +129,5 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

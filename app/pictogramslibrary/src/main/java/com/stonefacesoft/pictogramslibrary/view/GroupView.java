@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.stonefacesoft.pictogramslibrary.Classes.Group;
 import com.stonefacesoft.pictogramslibrary.Classes.OTTAAProjectObjects;
 import com.stonefacesoft.pictogramslibrary.R;
+import com.stonefacesoft.pictogramslibrary.utils.ValidateContext;
 
 import java.io.File;
 
@@ -97,12 +98,14 @@ public class GroupView extends TarjetView {
     protected void setData() {
         id = pictogramsLibraryGroup.getId();
         this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
-        if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {
-            Drawable drawable = findResource(pictogramsLibraryGroup.getPictogram());
+        if(ValidateContext.isValidContext(mContext)){
+            if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {
+                Drawable drawable = findResource(pictogramsLibraryGroup.getPictogram());
             glideAttatcher.setHeight(IconHeight).setWidth(IconWidth).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(drawable, this.icon);
-        } else {
-            selectIcon(pictogramsLibraryGroup,this.icon,glideAttatcher);
-         }
+            } else {
+                selectIcon(pictogramsLibraryGroup,this.icon,glideAttatcher);
+            }
+        }
     }
 
 
@@ -137,11 +140,13 @@ public class GroupView extends TarjetView {
     public void setData(int height, int with) {
         id = pictogramsLibraryGroup.getId();
         this.setCustom_Texto(pictogramsLibraryGroup.getObjectName());
-        if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {
-            Drawable drawable = findResource(pictogramsLibraryGroup.getPictogram());
-            glideAttatcher.setHeight(height).setWidth(with).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(drawable, this.icon);
-        } else {
-            selectIcon(pictogramsLibraryGroup,this.icon,glideAttatcher);
+        if(ValidateContext.isValidContext(mContext)){
+            if (pictogramsLibraryGroup.getEditedPictogram().isEmpty()) {
+                Drawable drawable = findResource(pictogramsLibraryGroup.getPictogram());
+                glideAttatcher.setHeight(height).setWidth(with).useDiskCacheStrategy().setRadius(25).UseCornerRadius(true).loadDrawable(drawable, this.icon);
+            } else {
+                selectIcon(pictogramsLibraryGroup,this.icon,glideAttatcher);
+            }
         }
     }
 

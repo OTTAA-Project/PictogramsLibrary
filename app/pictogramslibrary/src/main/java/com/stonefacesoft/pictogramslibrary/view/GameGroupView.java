@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.stonefacesoft.pictogramslibrary.Classes.GameGroup;
 import com.stonefacesoft.pictogramslibrary.Classes.OTTAAProjectObjects;
 import com.stonefacesoft.pictogramslibrary.R;
+import com.stonefacesoft.pictogramslibrary.utils.ValidateContext;
 
 import java.io.File;
 
@@ -83,11 +84,13 @@ public class GameGroupView extends TarjetView{
     protected void setData() {
         id = pictogramsLibraryGameGroup.getId();
         setCustom_Texto(pictogramsLibraryGameGroup.getObjectName());
-        if (pictogramsLibraryGameGroup.getEditedPictogram().isEmpty()) {
-            Drawable drawable = findResource(pictogramsLibraryGameGroup.getPictogram());
-            glideAttatcher.setHeight(IconHeight).setWidth(IconWidth).useDiskCacheStrategy().loadDrawable(drawable, this.icon);
-        } else {
-            selectIcon(pictogramsLibraryGameGroup, this.icon,glideAttatcher);
+        if(ValidateContext.isValidContext(mContext)){
+            if (pictogramsLibraryGameGroup.getEditedPictogram().isEmpty()) {
+                Drawable drawable = findResource(pictogramsLibraryGameGroup.getPictogram());
+                glideAttatcher.setHeight(IconHeight).setWidth(IconWidth).useDiskCacheStrategy().loadDrawable(drawable, this.icon);
+            } else {
+                selectIcon(pictogramsLibraryGameGroup, this.icon,glideAttatcher);
+            }
         }
     }
 
@@ -130,11 +133,13 @@ public class GameGroupView extends TarjetView{
     public void setData(int height, int with) {
         id = pictogramsLibraryGameGroup.getId();
         setCustom_Texto(pictogramsLibraryGameGroup.getObjectName());
-        if (pictogramsLibraryGameGroup.getEditedPictogram().isEmpty()) {
-            Drawable drawable = findResource(pictogramsLibraryGameGroup.getPictogram());
-            glideAttatcher.setHeight(height).setWidth(with).useDiskCacheStrategy().loadDrawable(drawable, this.icon);
-        } else {
-            selectIcon(pictogramsLibraryGameGroup, this.icon,glideAttatcher);
+        if(ValidateContext.isValidContext(mContext)){
+            if (pictogramsLibraryGameGroup.getEditedPictogram().isEmpty()) {
+                Drawable drawable = findResource(pictogramsLibraryGameGroup.getPictogram());
+                glideAttatcher.setHeight(height).setWidth(with).useDiskCacheStrategy().loadDrawable(drawable, this.icon);
+            } else {
+                selectIcon(pictogramsLibraryGameGroup, this.icon,glideAttatcher);
+            }
         }
      }
 

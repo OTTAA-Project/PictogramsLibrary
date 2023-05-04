@@ -14,6 +14,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.stonefacesoft.pictogramslibrary.Classes.OTTAAProjectObjects;
 import com.stonefacesoft.pictogramslibrary.R;
 import com.stonefacesoft.pictogramslibrary.utils.GlideAttatcher;
+import com.stonefacesoft.pictogramslibrary.utils.ValidateContext;
 
 import java.io.File;
 import java.io.IOException;
@@ -82,10 +83,12 @@ public class TarjetView extends ConstraintLayout  {
     protected void selectIcon(final OTTAAProjectObjects object,ImageView icon,GlideAttatcher glideAttatcher) {
       String path  = object.getEditedPictogram();
       File picture=new File(path);
-      if(picture.exists())
-          glideAttatcher.useDiskCacheStrategy().loadDrawable(picture,icon);
-      else{
-          glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(object.getUrl()),icon);
+      if(ValidateContext.isValidContext(mContext)){
+        if(picture.exists())
+              glideAttatcher.useDiskCacheStrategy().loadDrawable(picture,icon);
+        else{
+              glideAttatcher.useDiskCacheStrategy().loadDrawable(Uri.parse(object.getUrl()),icon);
+        }
       }
     }
 
