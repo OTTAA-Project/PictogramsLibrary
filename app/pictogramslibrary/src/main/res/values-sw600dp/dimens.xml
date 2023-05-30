@@ -21,4 +21,6 @@
     <dimen name="sizeDialogHeigthMax">450dp</dimen>
     <dimen name="sizeDialogWidth">650sp</dimen>
     <dimen name="ultra_big_fat_margin">250sp</dimen>
+    <dimen name="game_picto_size">150dp</dimen>
+
 </resources>
